@@ -93,3 +93,44 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ## 技术栈
 
 FastAPI + Uvicorn + Pydantic，数据用 JSON 文件持久化（原子写入），密码用 PBKDF2 哈希（20 万次迭代）。
+## 管理员后台登录不进去？
+
+按顺序排查：
+
+**1. 确认 `.env` 里的 `ADMIN_PASSWORD` 不为空**
+
+这是最常见的原因。留空时后端启动会打印：
+
+```
+[Admin] .env 未配置 ADMIN_USERNAME / ADMIN_PASSWORD，已跳过管理员账号引导（管理后台将无法登录）
+```
+
+填好密码后，**必须重启后端**才生效。
+
+**2. 确认是从 `a05-backend` 目录启动的**
+
+后端用的是相对路径（`users.json`、`question_banks.json` 等）。
+如果从别的目录启动，它会在那个目录新建一套空的 `users.json`，
+你会看到「数据全空 + 登录不了」两个症状同时出现。
+
+```bash
+cd a05-backend            # 先进入这个目录
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+**3. 确认账号真的被创建了**
+
+看 `a05-backend/users.json` 里有没有 `admin_pro` 这条记录。
+
+**4. 改了 `.env` 里的密码但登录失败**
+
+管理员账号**只在不存在时创建一次**，之后改 `.env` 不会覆盖已有密码。
+两种解决办法：
+
+- 删掉 `users.json` 里 `admin_pro` 那条，重启后端（会按新密码重建）
+- 或者用后台「用户管理 → 重置密码」
+
+**5. 密码格式**
+
+要求：至少 8 位，只能由字母和数字组成，且两类都要有。
+例如 `Admin2026pass` 可以，`12345678`（纯数字）和 `abc`（太短 / 无数字）不行。
