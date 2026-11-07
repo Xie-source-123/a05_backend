@@ -1,0 +1,38 @@
+{
+  "interview": {
+    "light": {
+      "accent": "#3a8fa0",
+      "hover": "#4a97d3",
+      "highlight": "#2b79b6"
+    },
+    "dark": {
+      "accent": "#e6f4ff",
+      "hover": "#eef7ff",
+      "highlight": "#e6f4ff"
+    }
+  },
+  "me": {
+    "light": {
+      "accent": "#2f4b8f",
+      "hover": "#748ecd",
+      "highlight": "#6994ff"
+    },
+    "dark": {
+      "accent": "#feffe6",
+      "hover": "#feffe9",
+      "highlight": "#feffe6"
+    }
+  },
+  "admin": {
+    "light": {
+      "accent": "#3a8fa0",
+      "hover": "#87bfca",
+      "highlight": "#2f8293"
+    },
+    "dark": {
+      "accent": "#b9c2cf",
+      "hover": "#d3dae3",
+      "highlight": "#d8b76f"
+    }
+  }
+}

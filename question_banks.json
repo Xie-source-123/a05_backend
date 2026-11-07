@@ -1,0 +1,5418 @@
+[
+  {
+    "id": "bank-36cd7d43b7",
+    "name": "Linux服务器运维工程师",
+    "source": "Linux练习题库2.xlsx",
+    "created_at": "2026-11-03 18:44:23.428862",
+    "questions": [
+      {
+        "id": "a524839669bd",
+        "no": "1",
+        "title": "Linux主流发行版：CentOS、Ubuntu、麒麟、欧拉区别",
+        "answer": "CentOS：红帽系，服务器稳定；Ubuntu：Debian系，桌面友好；麒麟/欧拉：国产，适配国产化服务器，自主内核适配国产芯片",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "75904e87bda8",
+        "no": "2",
+        "title": "Linux内核与用户空间概念",
+        "answer": "内核：管理硬件、进程、内存核心层；用户空间：普通应用运行区域，通过系统调用和内核交互，隔离安全",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0bddb96e1a16",
+        "no": "3",
+        "title": "Linux一切皆文件含义",
+        "answer": "硬件、目录、进程、网络套接字全部抽象为文件，统一读写接口操作",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e9563ab962c4",
+        "no": "4",
+        "title": "Linux根目录下/etc /home /var /usr /bin /srv各自作用",
+        "answer": "/etc配置文件；/home普通用户家目录；/var可变日志缓存；/usr系统软件；/bin基础命令；/srv服务数据目录",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a5b9a5b9a085",
+        "no": "5",
+        "title": "Linux运行级别0-6分别代表什么",
+        "answer": "0关机、1单用户救援、2无图形多用户、3字符多用户、4预留、5图形桌面、6重启",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8e45340a38ae",
+        "no": "6",
+        "title": "systemd与sysvinit区别",
+        "answer": "sysvinit串行启动，启动慢；systemd并行启动，支持服务依赖、自动重启、资源管控",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7ae27afcf4d5",
+        "no": "7",
+        "title": "systemctl常用管理服务命令",
+        "answer": "start/stop/restart启用停止重启；enable/disable开机自启；status查看状态；mask锁定服务",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2b3212f20d2c",
+        "no": "8",
+        "title": "软链接与硬链接底层区别、使用限制",
+        "answer": "硬链接同inode，不能跨分区、不能链目录；软链接存文件路径，可跨分区、支持目录，源删则失效",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5fbbb78e9e3d",
+        "no": "9",
+        "title": "inode与block概念，删除文件原理",
+        "answer": "inode存文件元数据；block存真实内容；rm仅删除目录inode引用，无引用才释放block",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ee4aec0f1ab0",
+        "no": "10",
+        "title": "文件权限rwx数字表示，755/644含义",
+        "answer": "r=4,w=2,x=1；755：所有者读写执行，组/其他读执行；644：所有者读写，其余只读",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4fd78d9e4df2",
+        "no": "11",
+        "title": "SUID、SGID、粘滞位基础作用",
+        "answer": "SUID程序运行属主权限；SGID目录新建文件继承目录组；粘滞位目录仅文件所有者可删除文件",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "54a24d203365",
+        "no": "12",
+        "title": "用户、用户组管理：useradd/groupadd/usermod",
+        "answer": "useradd新建用户；groupadd新建组；usermod修改用户归属、家目录、shell",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "99ac56fc62c8",
+        "no": "13",
+        "title": "/etc/passwd、/etc/shadow字段含义",
+        "answer": "passwd：用户名、UID、GID、家目录、shell；shadow：加密密码、密码有效期、锁定时间",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "826a79360d7b",
+        "no": "14",
+        "title": "sudo权限配置基础，/etc/sudoers",
+        "answer": "/etc/sudoers配置普通用户临时提权，可限定命令、免密执行",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bd98e725b79b",
+        "no": "15",
+        "title": "系统启动完整流程：BIOS-GRUB-内核-init",
+        "answer": "BIOS硬件自检→GRUB引导加载内核→内核挂载根文件系统→启动systemd初始化服务",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "850500ccb2c9",
+        "no": "16",
+        "title": "临时环境变量与永久环境变量配置",
+        "answer": "临时：export 变量=值，仅当前会话；永久：写入/etc/profile、~/.bashrc",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bc869ae4f84b",
+        "no": "17",
+        "title": "source命令作用",
+        "answer": "重新加载shell配置文件，不用重新登录生效",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "48047335710b",
+        "no": "18",
+        "title": "通配符* ? []使用规则",
+        "answer": "*匹配任意字符；?匹配单个字符；[]匹配括号内任一字符",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "daa7f15ef2cc",
+        "no": "19",
+        "title": "Linux区分大小写、Windows不区分的影响",
+        "answer": "Linux文件名大小写独立，易因大小写写错找不到文件；Windows不区分，跨平台迁移易文件名冲突",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "27d1f0983a72",
+        "no": "20",
+        "title": "磁盘分区MBR与GPT区别",
+        "answer": "MBR最多4主分区，最大2T磁盘；GPT支持百级分区、超大硬盘，自带备份分区表更安全",
+        "difficulty": "基础",
+        "category": "Linux系统基础",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4119734f1313",
+        "no": "21",
+        "title": "文件操作：ls cd cat more less cp mv rm mkdir touch",
+        "answer": "ls列文件；cd切目录；cat全量查看；more/less分页；cp复制mv移动；rm删除；mkdir建目录；touch创建空文件",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f4f743f5597f",
+        "no": "22",
+        "title": "文件查找find命令基础参数",
+        "answer": "find 路径 -name按名称、-size按大小、-type文件类型、-mtime修改时间",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "73e732e15985",
+        "no": "23",
+        "title": "文本处理grep、sed、awk基础用法",
+        "answer": "grep文本过滤；sed流编辑替换删除；awk按列分割统计文本数据",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "22912b6c2d3c",
+        "no": "24",
+        "title": "管道|、重定向> >> 2>&1作用",
+        "answer": "|传递前命令输出给后命令；>覆盖输出，>>追加；2>&1标准错误重定向到标准输出",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "805a6f9ea5d2",
+        "no": "25",
+        "title": "tar压缩解压常用参数",
+        "answer": "-z gzip压缩；-c打包；-x解压；-f指定文件；-v打印过程",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5c2692a1a7f1",
+        "no": "26",
+        "title": "df -h、du -sh查看磁盘占用区别",
+        "answer": "df查看分区整体使用率；du统计目录/文件真实占用大小",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "681cee73bac8",
+        "no": "27",
+        "title": "LVM基础命令pvcreate/vgcreate/lvcreate",
+        "answer": "pvcreate创建物理卷；vgcreate卷组；lvcreate逻辑卷",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bed192126673",
+        "no": "28",
+        "title": "进程查看ps -ef、top、htop基础指标解读",
+        "answer": "ps静态进程快照；top/htop实时监控CPU、内存、进程负载",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "fc50584af9ab",
+        "no": "29",
+        "title": "kill、kill -9区别，信号机制",
+        "answer": "kill 15正常终止，允许资源释放；kill -9强制杀死，进程无法收尾，易丢数据",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b1f776bb3c5b",
+        "no": "30",
+        "title": "uptime系统负载三个数值含义",
+        "answer": "1/5/15分钟平均运行队列长度，数值超CPU核心数代表负载高",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "49f50d1ab542",
+        "no": "31",
+        "title": "free -h buffer与cache区别",
+        "answer": "buffer缓存块设备数据；cache缓存文件页面，均可回收释放内存",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a6268ad3998e",
+        "no": "32",
+        "title": "vmstat、iostat基础作用",
+        "answer": "vmstat查看内存、进程、全局IO；iostat查看磁盘读写IO负载",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9c6ef859984f",
+        "no": "33",
+        "title": "网络查看ifconfig/ip addr，netstat/ss端口查询",
+        "answer": "ip addr查看网卡IP；ss性能优于netstat，查看监听端口与连接",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "609826655288",
+        "no": "34",
+        "title": "curl、wget网络请求工具使用",
+        "answer": "curl多用于接口测试；wget批量下载网络文件",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b5ae5621d4e9",
+        "no": "35",
+        "title": "scp、rsync远程传输区别",
+        "answer": "scp全量复制；rsync增量同步，只传差异文件，支持断点、压缩",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "aa2747bf4ca0",
+        "no": "36",
+        "title": "crontab定时任务语法，分时分日月周",
+        "answer": "* * * * * 分 时 日 月 周，编辑crontab -e",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ba10f96387f1",
+        "no": "37",
+        "title": "日志查看tail -f、head",
+        "answer": "tail -f实时跟踪日志末尾；head查看文件前N行",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bd8d5fb95fa5",
+        "no": "38",
+        "title": "chmod、chown修改权限属主",
+        "answer": "chmod修改读写执行权限；chown修改文件所有者与所属组",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "120066be5843",
+        "no": "39",
+        "title": "mount挂载、umount卸载磁盘",
+        "answer": "mount 设备 挂载点；umount 挂载点卸载磁盘分区",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "790eba3d3b92",
+        "no": "40",
+        "title": "fdisk磁盘分区操作",
+        "answer": "fdisk /dev/sdX 新建、删除、保存磁盘分区表",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "02d406aa7a3e",
+        "no": "41",
+        "title": "passwd修改用户密码",
+        "answer": "passwd 用户名修改密码，root可重置所有人密码",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "db4ea2d2a0da",
+        "no": "42",
+        "title": "history历史命令使用",
+        "answer": "history查看执行记录；!序号重复执行历史命令",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9bfd7e6249b9",
+        "no": "43",
+        "title": "wc统计行数、字符数",
+        "answer": "wc -l行数；wc -c字符数；wc -w单词数",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7e94d5918083",
+        "no": "44",
+        "title": "sort排序、uniq去重",
+        "answer": "sort文本按行排序；uniq去除连续重复行，常搭配sort",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "83ff3bcb4658",
+        "no": "45",
+        "title": "tr字符替换工具",
+        "answer": "批量替换、删除文本指定字符",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "81053fdce170",
+        "no": "46",
+        "title": "diff文件对比",
+        "answer": "对比两个文件差异行，输出不同内容",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2f639d348b24",
+        "no": "47",
+        "title": "hostname主机名修改",
+        "answer": "hostname临时修改；/etc/hostname永久修改主机名",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "866a8a057b6d",
+        "no": "48",
+        "title": "dmesg查看内核日志",
+        "answer": "查看硬件启动、内核报错、设备挂载日志",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "379932b3b9b5",
+        "no": "49",
+        "title": "clear、echo基础输出",
+        "answer": "clear清屏；echo打印文本、变量输出",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ca37b0dacc2c",
+        "no": "50",
+        "title": "alias命令别名配置",
+        "answer": "alias ll='ls -l' 临时别名；写入bashrc永久生效",
+        "difficulty": "基础",
+        "category": "高频Linux命令",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9f2c1fd4273c",
+        "no": "51",
+        "title": "OSI七层模型每层作用",
+        "answer": "物理层→数据链路→网络→传输→会话→表示→应用，逐层封装解包传输数据",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2f4619a55a93",
+        "no": "52",
+        "title": "TCP/IP四层模型协议",
+        "answer": "链路层、网络层(IP)、传输层(TCP/UDP)、应用层(HTTP/DNS)",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f494f1bb2297",
+        "no": "53",
+        "title": "TCP三次握手、四次挥手完整流程",
+        "answer": "握手建立可靠连接；挥手双向断开连接，保证数据传输完毕",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f686a43428fe",
+        "no": "54",
+        "title": "TCP滑动窗口、拥塞控制基础",
+        "answer": "滑动窗口流量控制，防止接收溢出；拥塞控制避免网络过载丢包",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "43664abddd4b",
+        "no": "55",
+        "title": "UDP特点，适用场景",
+        "answer": "无连接、无握手、开销低；直播、语音通话、DNS查询",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "296f25434cc8",
+        "no": "56",
+        "title": "HTTP与HTTPS区别，443/80端口",
+        "answer": "HTTP明文80端口；HTTPS加密SSL/TLS，443端口，传输安全",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "24e1f1ca2efb",
+        "no": "57",
+        "title": "DNS解析完整流程",
+        "answer": "浏览器缓存→本地hosts→本地DNS服务器→根域名服务器→权威域名服务器",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d0fe91e1f263",
+        "no": "58",
+        "title": "IP地址分类A/B/C/D/E，子网掩码",
+        "answer": "A类大网络，B中型，C小型内网；D组播，E保留；子网掩码区分网络位主机位",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "857c6a445724",
+        "no": "59",
+        "title": "网关作用，静态路由配置",
+        "answer": "跨网段转发出口；route add添加静态路由",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "65cb03c92f4f",
+        "no": "60",
+        "title": "ping、traceroute排查网络原理",
+        "answer": "ping ICMP探测连通性；traceroute追踪数据包路由节点、定位丢包节点",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "848515cc3393",
+        "no": "61",
+        "title": "端口概念，知名端口22/80/443/3306/6379",
+        "answer": "端口区分主机内服务；22SSH、80HTTP、443HTTPS、3306MySQL、6379Redis",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "76e4e2676b45",
+        "no": "62",
+        "title": "SSH协议原理，默认22端口",
+        "answer": "加密远程登录协议，替代明文telnet，默认22端口",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7f0fe9db56f8",
+        "no": "63",
+        "title": "iptables防火墙基础四表五链",
+        "answer": "四表：filter/nat/mangle/raw；五链INPUT/OUTPUT/FORWARD/PREROUTING/POSTROUTING，过滤转发流量",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b6b3d79f710f",
+        "no": "64",
+        "title": "firewalld基础放行端口操作",
+        "answer": "firewall-cmd添加端口永久放行，重载规则生效",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "1e92d194a3c9",
+        "no": "65",
+        "title": "服务器禁止root远程登录配置",
+        "answer": "修改sshd配置PermitRootLogin no，重启sshd服务",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "babecd03d4d2",
+        "no": "66",
+        "title": "NAT三种模式原理",
+        "answer": "源SNAT内网访问外网；目的DNAT外网访问内网；MASQUERADE动态SNAT",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7b354a6e7cfa",
+        "no": "67",
+        "title": "负载均衡LVS、Nginx基础概念",
+        "answer": "LVS四层负载均衡；Nginx七层应用负载均衡，反向代理分发流量",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d3350f445e2e",
+        "no": "68",
+        "title": "动静分离基础思路",
+        "answer": "静态资源图片/js交由Nginx直接返回，动态接口转发后端应用服务",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "531d277ca1b6",
+        "no": "69",
+        "title": "服务器带宽打满排查思路",
+        "answer": "ss/netstat看连接数；iftop查看流量来源；封禁恶意IP、限流优化接口",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e504363974e8",
+        "no": "70",
+        "title": "无法ping通外网排查步骤",
+        "answer": "网卡IP→网关→DNS→防火墙规则→路由表",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6f9aee5b8fa6",
+        "no": "71",
+        "title": "端口不通分层排查流程",
+        "answer": "本机进程监听→防火墙放行→路由可达→对端服务端口开放",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "035db3876fc0",
+        "no": "72",
+        "title": "本地hosts解析优先级高于DNS",
+        "answer": "系统优先读取/etc/hosts本地域名映射，再请求DNS服务器",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "381a216b6fa8",
+        "no": "73",
+        "title": "TCP粘包基础概念",
+        "answer": "发送缓冲区合并多条消息，接收端一次性读取多条数据，需拆包处理",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4b3189e927c4",
+        "no": "74",
+        "title": "网络丢包定位方法",
+        "answer": "traceroute、mtr持续监控路由节点丢包，排查防火墙、网卡、交换机故障",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "33d756c79ba8",
+        "no": "75",
+        "title": "服务器防暴力破解基础手段",
+        "answer": "限制SSH登录IP、fail2ban自动封禁高频失败IP、修改默认22端口、密钥登录禁用密码",
+        "difficulty": "基础",
+        "category": "网络基础、防火墙",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8235a8f8e344",
+        "no": "76",
+        "title": "RAID0/RAID1/RAID5/RAID10优缺点与适用场景",
+        "answer": "RAID0速度高无冗余；RAID1镜像安全；RAID5单盘容错兼顾容量；RAID10速度+高安全，数据库常用",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "fcbabc7ff457",
+        "no": "77",
+        "title": "LVM逻辑卷扩容基础步骤",
+        "answer": "新增磁盘→pvcreate→vgextend扩容卷组→lvextend扩容逻辑卷→resize2fs/xfs_growfs扩容文件系统",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2d54a8c80466",
+        "no": "78",
+        "title": "磁盘满了无法写入排查清理流程",
+        "answer": "df -h看满分区→du -sh定位大文件/日志→清理过期日志、删除无用大文件、日志轮转",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8f45b2001521",
+        "no": "79",
+        "title": "NFS文件共享服务搭建与权限",
+        "answer": "服务端配置/etc/exports共享目录；客户端mount挂载，控制读写权限",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "493b36a23ee2",
+        "no": "80",
+        "title": "Samba windows-Linux文件共享",
+        "answer": "配置smb.conf实现Windows与Linux跨系统文件互访",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a10755e47fc0",
+        "no": "81",
+        "title": "YUM软件源配置、更换国内镜像",
+        "answer": "修改/etc/yum.repos.d源文件，阿里/清华镜像加速下载软件包",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5720c40266c0",
+        "no": "82",
+        "title": "rpm包管理安装卸载查询",
+        "answer": "rpm -ivh安装；-e卸载；-qa查询已装包；-ql查看文件路径",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a24b77825f58",
+        "no": "83",
+        "title": "源码编译安装三步./configure make make install",
+        "answer": "configure检测环境生成编译脚本；make编译源码；make install复制程序到系统目录",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c2f4095851f1",
+        "no": "84",
+        "title": "MySQL基础安装、初始化、远程授权",
+        "answer": "初始化生成密码；grant授权外网IP访问数据库，开放3306端口",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3c07a5fc4039",
+        "no": "85",
+        "title": "Redis基础启动、持久化RDB/AOF基础",
+        "answer": "RDB定时全量快照；AOF记录每条写操作，双持久化防止数据丢失",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e30625d92a97",
+        "no": "86",
+        "title": "Nginx基础安装、虚拟主机配置",
+        "answer": "不同域名绑定独立站点目录，nginx.conf配置server块实现多网站",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d62170b931bf",
+        "no": "87",
+        "title": "日志轮转logrotate基础作用",
+        "answer": "自动切割、压缩、归档日志，防止日志占满磁盘",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9cff1cc5a008",
+        "no": "88",
+        "title": "系统缓存清理命令",
+        "answer": "sync; echo 3 > /proc/sys/vm/drop_caches 释放页缓存、 dentries、inodes",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "31ac45f9e667",
+        "no": "89",
+        "title": "定时备份文件脚本基础思路",
+        "answer": "tar打包目标文件，同步到异地存储，crontab定时执行，日志记录备份结果",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "81cff9b3cc5e",
+        "no": "90",
+        "title": "服务器关机、重启shutdown/reboot",
+        "answer": "shutdown安全关机，通知用户；reboot直接重启",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "60d201fa5b99",
+        "no": "91",
+        "title": "僵尸进程、孤儿进程基础概念",
+        "answer": "僵尸：子进程退出父未回收；孤儿：父进程提前退出，子由systemd接管",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "07c3df8fcfa5",
+        "no": "92",
+        "title": "守护进程创建方式",
+        "answer": "脱离终端、后台运行，nohup、systemd服务、fork两次创建守护进程",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a7739fcc033b",
+        "no": "93",
+        "title": "/var/log系统核心日志文件作用",
+        "answer": "messages系统综合日志；secure登录安全日志；dmesg内核日志",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5e2c275ed644",
+        "no": "94",
+        "title": "系统时间同步chrony配置",
+        "answer": "连接NTP时间服务器，自动校正系统时钟，比ntpd精度更高",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8613586b2874",
+        "no": "95",
+        "title": "磁盘坏道检测工具",
+        "answer": "badblocks扫描磁盘坏道，fsck修复文件系统故障",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0d5205f6fc31",
+        "no": "96",
+        "title": "服务器基础安全策略",
+        "answer": "关闭无用端口、定期补丁更新、最小权限账号、防火墙限制访问、定期备份",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "dfa8e501cdcb",
+        "no": "97",
+        "title": "单机磁盘IO过高基础排查步骤",
+        "answer": "iostat看%iowait；iotop定位高IO进程；清理大量读写日志、优化定时任务",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d89084944223",
+        "no": "98",
+        "title": "进程CPU100%基础排查流程",
+        "answer": "top定位高CPU进程；pidstat看线程；strace/perf分析函数，结束异常进程",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "544bd96ff080",
+        "no": "99",
+        "title": "内存溢出OOM日志查看方式",
+        "answer": "/var/log/messages、dmesg查看内核杀死进程OOM记录",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4951eb7613b0",
+        "no": "100",
+        "title": "Shell脚本基础语法：变量、循环、判断",
+        "answer": "变量直接赋值；if判断；for/while循环；$1 $2接收脚本入参",
+        "difficulty": "基础",
+        "category": "服务、磁盘、基础运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "060482f2e003",
+        "no": "101",
+        "title": "Linux内核参数sysctl.conf核心优化项（网络、内存、文件句柄）",
+        "answer": "内存：vm.swappiness、vm.dirty系列、vfs_cache_pressure；文件：fs.file-max；网络：somaxconn、tcp_tw_reuse、本地端口范围、TCP缓冲区、syn队列参数，修改后sysctl -p生效。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "dce2094cde5a",
+        "no": "102",
+        "title": "文件句柄nofile软硬限制修改，进程打开文件上限",
+        "answer": "soft为临时告警上限，hard是最大硬性天花板；修改/etc/security/limits.conf，systemd服务需额外配置；ulimit -n临时生效，解决too many open files。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d2ffc334cc8a",
+        "no": "103",
+        "title": "内存OOM killer触发规则，优先级调整",
+        "answer": "系统内存耗尽，缓存、swap回收后仍不足触发；依据oom_score打分，内存占用越高分值越高；修改oom_score_adj调整优先级，核心服务设置负值保护。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "70ee949dcced",
+        "no": "104",
+        "title": "buffer/cache回收内核参数，脏页刷写机制",
+        "answer": "vfs_cache_pressure控制目录项与inode缓存回收；dirty后台/前台比例参数控制脏页落盘，脏页超时参数控制滞留时长。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "16cb1833ddb4",
+        "no": "105",
+        "title": "内存交换分区swap策略优化，swappiness参数",
+        "answer": "取值范围0~100，数值越高系统越积极使用swap；数据库推荐1，Web服务10~30，尽量优先回收PageCache，减少swap磁盘IO卡顿。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c10d9e6b92bc",
+        "no": "106",
+        "title": "进程调度CFS完全公平调度器原理",
+        "answer": "基于进程权重分配CPU时间片，使用红黑树维护运行队列，保障所有就绪进程获取相对公平CPU时间，降低交互式进程延迟。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2d562e5cace4",
+        "no": "107",
+        "title": "CPU中断irq均衡，多核CPU性能优化",
+        "answer": "irqbalance服务自动将硬件中断分发至多个CPU核心；可手动配置smp_affinity绑定中断CPU，防止单核中断打满瓶颈。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c927a115628f",
+        "no": "108",
+        "title": "磁盘IO调度算法noop/deadline/cfq对比选型",
+        "answer": "noop：SSD/云磁盘，极简队列；deadline：数据库业务，兼顾读写请求；cfq：传统机械硬盘，面向多进程通用场景。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "232910de44e8",
+        "no": "109",
+        "title": "脏页比例参数调优，避免刷盘阻塞业务",
+        "answer": "调低dirty_background_ratio让系统后台持续刷脏；合理设置dirty_ratio阈值，防止脏页总量超限导致业务同步写入阻塞。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b60eb0a2afab",
+        "no": "110",
+        "title": "内核TCP/IP协议栈深度优化（连接数、超时、缓冲区）",
+        "answer": "调大全连接、半连接队列，扩大临时端口范围，优化TCP收发缓冲区，调整各类连接超时参数，支撑高并发网络连接。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b056a8932b28",
+        "no": "111",
+        "title": "TCP TIME_WAIT过多产生原因与内核优化",
+        "answer": "成因：大量短连接频繁关闭；优化：启用tcp_tw_reuse、缩短tcp_fin_timeout、调整tw重用桶大小，快速回收端口资源。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "00329e6233d6",
+        "no": "112",
+        "title": "TCP SYN洪水攻击防御内核参数",
+        "answer": "开启tcp_syncookies，调大tcp_max_syn_backlog，缩短SYN-ACK重传时间，抵御海量半连接攻击。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7856ac2f1c90",
+        "no": "113",
+        "title": "半连接、全连接队列溢出排查优化",
+        "answer": "半连接溢出：调大tcp_max_syn_backlog；全连接溢出：提升somaxconn以及应用程序listen的backlog参数。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ff7da28286bf",
+        "no": "114",
+        "title": "大文件传输TCP滑动窗口调优",
+        "answer": "调大tcp_rmem、tcp_wmem缓冲区上限，启用TCP窗口缩放选项，减少数据包分片，提升大流量传输吞吐量。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4792a444ef11",
+        "no": "115",
+        "title": "内存泄漏完整排查流程（valgrind工具）",
+        "answer": "top/ps定位高内存进程；使用valgrind检测malloc/free，分析未释放堆内存，定位代码内存泄漏点。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "791cf304d28b",
+        "no": "116",
+        "title": "磁盘随机IO、顺序IO性能差异优化方案",
+        "answer": "顺序IO：加大系统预读、启用读写缓存；随机IO：切换noop调度、更换SSD、控制同步刷盘频次，减少随机写压力。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ccbd8699153e",
+        "no": "117",
+        "title": "服务器负载高但CPU空闲定位IO等待瓶颈",
+        "answer": "负载高、CPU空闲通常iowait指标过高；使用iostat查看磁盘%util，根因为磁盘IO瓶颈、大量同步刷盘、数据库随机读写。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "50ec98aff176",
+        "no": "118",
+        "title": "僵尸进程大量堆积根源与处理方案",
+        "answer": "子进程退出后父进程未调用wait/waitpid回收资源；临时方案杀死父进程由init回收；根治需要修复程序进程回收逻辑。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d002178d1e34",
+        "no": "119",
+        "title": "内核panic崩溃日志收集与故障定位",
+        "answer": "配置kdump生成vmcore转储文件；结合dmesg、系统日志，使用crash工具解析内核堆栈定位崩溃原因。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b450d41feac9",
+        "no": "120",
+        "title": "单机百万并发连接内核参数完整配置",
+        "answer": "上调fs.file-max、扩容临时端口区间，优化TCP缓冲区、开启TIME_WAIT复用，调高各类网络队列，降低swappiness。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "77b0c6ae0295",
+        "no": "121",
+        "title": "透明大页THP对数据库/中间件性能危害与关闭",
+        "answer": "THP内存合并机制会造成业务延迟毛刺；MySQL、Redis等中间件业务必须永久关闭透明大页。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e6e6e5a744de",
+        "no": "122",
+        "title": "numa架构服务器CPU内存亲和性优化",
+        "answer": "NUMA架构跨节点访问内存延迟更高；使用numactl绑定进程至单一节点，业务进程优先访问本地内存节点。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "543dcb5219f2",
+        "no": "123",
+        "title": "系统平均负载大于CPU核心数故障分析",
+        "answer": "大量线程处于等待状态；常见诱因：IO阻塞、线程锁竞争、频繁上下文切换、大量阻塞/僵尸进程。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b15ad4ae1f9c",
+        "no": "124",
+        "title": "日志大量刷盘导致磁盘IO打满优化",
+        "answer": "开启日志异步刷盘、配置日志轮转、调整内核脏页参数、日志存储使用SSD，合并批量写入，减少频繁fsync调用。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "756ec7dfb35d",
+        "no": "125",
+        "title": "虚拟化KVM宿主机内核调优，虚拟机性能隔离",
+        "answer": "宿主机关闭THP、开启irq均衡；cgroup资源限制隔离；网卡直通；磁盘IO调度选用noop，避免虚拟机资源互相抢占。",
+        "difficulty": "进阶",
+        "category": "系统内核、性能深度调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "eaf16fbc2802",
+        "no": "126",
+        "title": "Shell脚本数组、函数、传参、异常捕获处理",
+        "answer": "数组存储批量数据；函数实现代码复用；$1、$2获取入参；set -e、trap机制捕获异常，错误时打印日志安全退出。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "cbe3239330e6",
+        "no": "127",
+        "title": "awk高级脚本：多文件处理、自定义函数、统计聚合",
+        "answer": "awk支持多文件并行处理、自定义function、数组统计；适合日志解析、数据聚合、文本批量统计场景。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "41fa3b6f8103",
+        "no": "128",
+        "title": "sed高级替换、分组匹配、多行处理",
+        "answer": "支持正则分组引用\\1；-i原地修改；N指令实现多行文本处理，常用于批量修改配置文件。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "383d972cb242",
+        "no": "129",
+        "title": "Shell脚本并发执行方案（后台循环、管道并发）",
+        "answer": "后台& + wait、xargs -P、GNU parallel三种主流方式，实现多任务并发执行，缩短批量操作耗时。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c07dd349fd14",
+        "no": "130",
+        "title": "crontab秒级定时任务实现方案",
+        "answer": "Linux原生crontab最小单位分钟；实现方式：脚本内部sleep循环、多任务错开调度。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "81dd7784f908",
+        "no": "131",
+        "title": "Shell日志分级输出、日志轮转脚本封装",
+        "answer": "封装日志函数区分INFO/WARN/ERROR；同时输出终端与日志文件，结合logrotate自动清理过期日志。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "419509e19a46",
+        "no": "132",
+        "title": "服务器批量巡检脚本（CPU/内存/磁盘/端口）",
+        "answer": "循环遍历主机清单，远程采集CPU使用率、内存、磁盘使用率、端口监听状态，输出巡检汇总报表。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ecde1d8dcb72",
+        "no": "133",
+        "title": "Python subprocess调用系统命令，管道交互",
+        "answer": "subprocess模块执行系统命令，支持管道通信，捕获标准输出与错误输出，替代老旧os.popen。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bf76b41f5fdf",
+        "no": "134",
+        "title": "Python paramiko批量远程服务器执行命令",
+        "answer": "基于SSH协议，支持密钥免密登录，远程执行命令、上传下载文件，实现集群批量操作。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4a8021417e0e",
+        "no": "135",
+        "title": "Python fabric自动化批量发布文件",
+        "answer": "基于paramiko高层封装，简化远程文件推送、服务重启，适合业务批量发布场景。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0cfba973b584",
+        "no": "136",
+        "title": "Ansible工作原理，Inventory主机清单分层",
+        "answer": "无Agent，基于SSH通信；Inventory支持分组、分层管理主机，定义IP、账号、自定义变量。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d37ba3fa5b1a",
+        "no": "137",
+        "title": "Ansible核心模块copy/file/lineinfile/service模板",
+        "answer": "copy推送文件；file管理目录权限；lineinfile修改单行配置；service控制系统服务启停。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "45a26ae15fdb",
+        "no": "138",
+        "title": "Ansible Playbook循环、判断、异常处理",
+        "answer": "loop实现循环，when条件分支，block+rescue捕获任务异常，实现失败容错。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ada18c32eb49",
+        "no": "139",
+        "title": "Ansible角色Role分层管理大型集群配置",
+        "answer": "Role按照tasks、templates、vars标准化目录结构，实现配置复用，管理大规模集群。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "564b36271feb",
+        "no": "140",
+        "title": "Ansible vault加密敏感配置文件",
+        "answer": "加密密码、密钥等敏感信息，执行playbook时解密，杜绝配置明文泄露风险。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d62e725e4234",
+        "no": "141",
+        "title": "Terraform基础设施即代码，云服务器批量创建",
+        "answer": "声明式IaC，代码定义云主机、网络、存储资源；统一创建、销毁，保证多环境资源一致性。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a646ecf534ce",
+        "no": "142",
+        "title": "CI/CD流水线Jenkins完整流程（代码拉取-打包-部署）",
+        "answer": "拉取代码→代码质量检测→编译打包→制品仓库上传→目标服务器部署→业务健康检查。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2ba76f77e3f1",
+        "no": "143",
+        "title": "蓝绿发布、金丝雀发布脚本实现思路",
+        "answer": "蓝绿：两套完整业务集群切换流量；金丝雀：分配少量灰度流量；一般通过修改Nginx upstream权重实现流量切换。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "472df7ced992",
+        "no": "144",
+        "title": "自动化日志清洗、错误告警推送脚本",
+        "answer": "脚本过滤日志异常关键字，匹配错误堆栈，调用接口推送钉钉、邮件、短信告警。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "328d457353bf",
+        "no": "145",
+        "title": "服务器资产自动化采集脚本（硬件/系统/服务）",
+        "answer": "采集硬件信息、系统版本、运行服务、监听端口，数据入库，自动生成服务器资产清单。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "886f5f7d928f",
+        "no": "146",
+        "title": "批量清理过期日志、临时文件脚本",
+        "answer": "find命令根据文件修改时间筛选过期文件，增加白名单保护关键文件，安全批量删除。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c1d3cd7150d7",
+        "no": "147",
+        "title": "MySQL自动备份、异地备份、备份校验脚本",
+        "answer": "mysqldump全量备份 + binlog增量备份；定时传输至异地存储，脚本校验备份文件完整性。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "1da6084058f7",
+        "no": "148",
+        "title": "Redis批量集群部署自动化脚本",
+        "answer": "脚本自动创建节点、分配槽位、启动哨兵组件，一键自动化部署Redis集群。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9431257d52ff",
+        "no": "149",
+        "title": "Nginx配置文件自动生成、灰度流量切换",
+        "answer": "通过模板渲染自动生成Nginx配置，动态调整upstream权重，reload实现灰度切流。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5e6bdeba4813",
+        "no": "150",
+        "title": "监控指标数据自动入库，定时报表生成",
+        "answer": "定时脚本采集业务指标存入数据库；Python自动化生成报表，定时推送负责人。",
+        "difficulty": "进阶",
+        "category": "自动化运维、Shell/Python开发",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "eeafa6b791be",
+        "no": "151",
+        "title": "Nginx负载均衡四层/七层区别，加权轮询、ip_hash原理",
+        "answer": "四层stream：转发TCP/UDP，基于IP端口；七层http：解析应用协议；加权轮询按权重分发；ip_hash固定客户端后端节点。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7491a3ece11b",
+        "no": "152",
+        "title": "Nginx反向代理缓冲区、连接数、长连接调优",
+        "answer": "调大proxy缓冲区、worker连接上限，开启HTTP长连接，减少TCP握手开销，降低后端连接超时。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f4049836be52",
+        "no": "153",
+        "title": "Nginx动静分离、缓存静态资源配置优化",
+        "answer": "静态资源由Nginx直接返回并设置缓存expires；动态请求转发后端应用，减轻应用服务器压力。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3bd0a82ebd6d",
+        "no": "154",
+        "title": "Nginx高可用Keepalived双机热备，VRRP协议",
+        "answer": "基于VRRP协议提供虚拟VIP；主节点故障，VIP自动漂移至备节点，实现Nginx双机高可用。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a1b6514bd21e",
+        "no": "155",
+        "title": "LVS三种工作模式NAT/DR/TUN底层原理对比",
+        "answer": "NAT：出入流量均经过调度器；DR：仅入流量调度，后端服务器直接回包，性能最优；TUN通过IP隧道支持跨机房部署。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "adea0b2d18d2",
+        "no": "156",
+        "title": "Keepalived脑裂问题成因与防范措施",
+        "answer": "主备节点心跳通信中断，双方同时抢占VIP；防范：多心跳链路、防火墙放行组播、配置抢占延迟。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8a9211e824b0",
+        "no": "157",
+        "title": "MySQL主从复制完整流程，binlog三种格式",
+        "answer": "主库binlog记录数据变更；从库IO线程拉取日志，SQL线程回放；binlog分为statement、row、mixed三种格式。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "1c8111bab8b2",
+        "no": "158",
+        "title": "主从延迟产生原因、完整排查优化方案",
+        "answer": "诱因：大事务、从库单线程回放、磁盘性能差；优化：开启并行复制、拆分长事务、升级存储介质。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9f7f1da4faae",
+        "no": "159",
+        "title": "MySQL读写分离中间件MyCat基础原理",
+        "answer": "拦截SQL语句，读请求路由至从库，写请求路由主库；同时支持分库分表能力。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "33a78668da13",
+        "no": "160",
+        "title": "Redis主从复制、哨兵Sentinel高可用架构",
+        "answer": "主节点负责写入，从节点同步数据；Sentinel集群持续监控，主节点故障自动选举新主节点。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "17d79b29b86d",
+        "no": "161",
+        "title": "Redis集群槽位分配、故障自动切换",
+        "answer": "Redis集群一共16384个哈希槽，分配至主节点；主节点故障，槽位迁移至对应从节点实现持续服务。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e378dba8708b",
+        "no": "162",
+        "title": "Redis持久化RDB与AOF混合持久化调优",
+        "answer": "RDB定时全量快照，AOF记录增量操作；混合持久化兼顾快速恢复与数据安全。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c0325b2197a0",
+        "no": "163",
+        "title": "RabbitMQ集群、镜像队列高可用方案",
+        "answer": "镜像队列将消息同步集群多个节点，单一节点宕机消息不会丢失，保障消息高可用。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e1901dbf028f",
+        "no": "164",
+        "title": "Docker镜像分层原理，多阶段构建减小镜像体积",
+        "answer": "镜像采用多层只读存储，分层缓存复用；多阶段构建分离编译环境与运行环境，裁剪镜像大小。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d34483c8ba53",
+        "no": "165",
+        "title": "Docker容器网络模式bridge/host/none/container",
+        "answer": "bridge默认隔离网桥；host共享宿主机网络栈；none无网络；container复用其他容器网络命名空间。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0a1da13dd3cb",
+        "no": "166",
+        "title": "Docker数据卷持久化，容器数据丢失解决方案",
+        "answer": "Volume托管存储、Bind挂载宿主机目录；容器删除不会清除卷数据，解决容器销毁数据丢失问题。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "03fda15bb476",
+        "no": "167",
+        "title": "Docker资源限制CPU/内存，OOM控制",
+        "answer": "--memory限制内存上限，--cpus限制CPU使用率；内存超限会触发容器OOM被终止。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "da8f335a0f3e",
+        "no": "168",
+        "title": "Kubernetes架构Master/Node各组件作用",
+        "answer": "Master：etcd、apiserver、scheduler、controller-manager；Node：kubelet、kube-proxy、容器运行时。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "21765bba3a57",
+        "no": "169",
+        "title": "Pod生命周期、存活探针Liveness、就绪探针Readiness",
+        "answer": "Liveness探针检测程序是否存活，失败重启Pod；Readiness探针判断业务就绪，就绪后接入Service流量。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ecdcb0cf5b31",
+        "no": "170",
+        "title": "Service四种类型ClusterIP/NodePort/LoadBalancer/ExternalName",
+        "answer": "ClusterIP集群内部访问；NodePort暴露节点端口；LoadBalancer对接云厂商负载均衡；ExternalName映射外部服务地址。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "094054239210",
+        "no": "171",
+        "title": "PV/PVC持久存储，StorageClass动态供给",
+        "answer": "PV代表持久存储卷，PVC是存储申请；StorageClass自动创建PV，无需手动预先创建存储资源。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b4c6fae107ed",
+        "no": "172",
+        "title": "HPA水平Pod自动扩缩容CPU/自定义指标",
+        "answer": "依据CPU使用率或自定义业务指标，自动增减Pod副本数量，应对流量波动。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8b2c24a3480f",
+        "no": "173",
+        "title": "K8s滚动更新、回滚策略，maxSurge/maxUnavailable",
+        "answer": "maxSurge最大新增Pod数量，maxUnavailable最大不可用Pod；更新异常支持快速回滚至旧版本。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "818bd8d6ebba",
+        "no": "174",
+        "title": "K8s集群网络Flannel/Calico底层实现差异",
+        "answer": "Flannel轻量Overlay隧道；Calico基于BGP路由，支持NetworkPolicy网络策略，实现集群网络隔离。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "cb249dd87179",
+        "no": "175",
+        "title": "K8s集群故障排查：Pod无法启动、网络不通",
+        "answer": "Pod无法启动排查镜像、资源配额、探针配置；网络不通检查Service、网络策略、kube-proxy、防火墙规则。",
+        "difficulty": "进阶",
+        "category": "高可用集群、云原生",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a8e2c9badf3c",
+        "no": "176",
+        "title": "CPU持续100%完整分层排查流程（用户态/内核态/iowait）",
+        "answer": "top区分us用户态、sy内核态、iowait；us高：业务代码；sy高：内核锁/中断；iowait高：磁盘IO瓶颈。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3d50918207c5",
+        "no": "177",
+        "title": "服务器磁盘100%占用：大文件、删除未释放文件、日志暴涨",
+        "answer": "du查找大文件；lsof检索deleted已删除但进程占用文件；定位持续膨胀的业务日志。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "561c36df422c",
+        "no": "178",
+        "title": "内存频繁swap交换卡顿根源定位与优化",
+        "answer": "物理内存资源不足、swappiness参数过高；优化：增加内存、调低swappiness、限制进程最大内存占用。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f7ea0e050e89",
+        "no": "179",
+        "title": "网络带宽跑满、丢包、延迟高完整排查链路",
+        "answer": "iftop定位流量来源；mtr排查链路丢包延迟；检查网卡负载、防火墙限流、交换机故障。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6c2de8516d95",
+        "no": "180",
+        "title": "端口无法外部访问：防火墙、监听地址、路由、安全组分层排查",
+        "answer": "确认程序监听0.0.0.0；放行防火墙/云安全组策略；检查路由连通性。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4b05067a3504",
+        "no": "181",
+        "title": "MySQL慢查询、连接数打满、锁等待故障处理",
+        "answer": "慢查询使用explain优化索引；连接占满调高max_connections；锁等待需要拆分长事务，优化SQL。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "973df2399a83",
+        "no": "182",
+        "title": "Redis大量阻塞、内存淘汰、持久化阻塞业务",
+        "answer": "诱因：大key操作、内存淘汰策略、AOF刷盘阻塞；优化：拆分大key，调整持久化同步策略。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4f0cd2c39cbe",
+        "no": "183",
+        "title": "Nginx 502/503/499错误完整原因与修复",
+        "answer": "502：后端服务进程崩溃；503：无可用后端节点；499：客户端主动提前断开连接。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7b9561df9ac9",
+        "no": "184",
+        "title": "服务器被暴力SSH爆破，入侵排查流程（日志、异常进程）",
+        "answer": "分析/var/log/secure登录日志；清理陌生账号；启用密钥登录，限制SSH访问IP，禁用密码登录。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "714f63f9fc63",
+        "no": "185",
+        "title": "木马挖矿进程识别、清理、溯源加固方案",
+        "answer": "识别占用CPU的陌生异常进程；清理进程、定时任务、木马文件；封堵矿池地址，加固服务器账号权限。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "875ed7237a55",
+        "no": "186",
+        "title": "Linux日志审计rsyslog集中收集ELK架构",
+        "answer": "rsyslog采集多服务器日志，统一传输至Elasticsearch存储，Kibana实现日志检索与安全审计。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "96076a9b5673",
+        "no": "187",
+        "title": "Zabbix监控自定义模板、触发器、告警媒介配置",
+        "answer": "自定义监控模板采集业务指标；触发器设置告警阈值；配置邮件、钉钉等告警推送渠道。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "611afd95f7ac",
+        "no": "188",
+        "title": "Prometheus+Grafana监控指标采集、告警规则",
+        "answer": "各类Exporter采集指标；Prometheus时序存储；Grafana可视化；AlertManager统一管理告警。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b0e7f530e6b6",
+        "no": "189",
+        "title": "监控指标阈值合理设计，避免告警风暴",
+        "answer": "设置合理阈值，开启告警抑制、告警聚合、分级告警，屏蔽瞬时抖动产生的无效告警。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "defbd9beaa84",
+        "no": "190",
+        "title": "服务器异地容灾方案RTO/RPO指标设计",
+        "answer": "RTO：业务故障恢复时长；RPO：系统允许丢失数据时长；多活架构缩短RTO，同步复制降低RPO。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6cbf84f64208",
+        "no": "191",
+        "title": "数据库定时备份损坏恢复演练流程",
+        "answer": "定期执行全量+增量备份；周期性开展恢复演练，验证备份文件可用，防止备份损坏无法恢复。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6513ffe28de3",
+        "no": "192",
+        "title": "防火墙高级策略、访问控制白名单精细化管理",
+        "answer": "默认拒绝所有访问；仅放行业务所需IP与端口；定期清理废弃防火墙策略，最小权限访问。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6fad284d4aed",
+        "no": "193",
+        "title": "SELinux开启后业务报错排查放行方案",
+        "answer": "临时setenforce 0验证；长期方案添加sebool、修改文件安全上下文，不建议直接永久关闭SELinux。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6cdd792a30fe",
+        "no": "194",
+        "title": "OpenSSL漏洞、系统漏洞批量修复流程",
+        "answer": "漏洞扫描识别CVE风险；yum/apt批量升级软件；灰度分批打补丁，规避业务中断风险。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3e169bb167e4",
+        "no": "195",
+        "title": "服务器基线安全加固规范（账号、权限、端口、日志）",
+        "answer": "清理弱密码、最小权限账号；关闭无用端口；开启日志审计；禁止root账号远程SSH登录。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6490295ad527",
+        "no": "196",
+        "title": "跨机房服务器时间不一致引发业务异常处理",
+        "answer": "部署chrony/NTP服务统一时钟；解决分布式日志错乱、证书校验、分布式事务异常问题。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0db69d8c0fd8",
+        "no": "197",
+        "title": "磁盘坏道导致集群服务宕机应急处理",
+        "answer": "badblocks检测磁盘坏道；隔离故障磁盘，业务切换至备用存储，下线更换故障硬盘。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6401f272b04e",
+        "no": "198",
+        "title": "定时任务堆积、并发冲突故障排查",
+        "answer": "任务执行超时造成并发重叠；解决方案：增加任务互斥锁、调整任务执行间隔、拆分耗时任务。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "907e802956e0",
+        "no": "199",
+        "title": "中间件日志大量报错，堆栈日志快速定位根因",
+        "answer": "过滤日志ERROR堆栈信息；分析线程阻塞、连接耗尽、超时异常，定位配置或者代码根因。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "43fb051df6f5",
+        "no": "200",
+        "title": "大规模集群批量故障应急处置流程",
+        "answer": "分级上报；优先将流量切换备用集群；隔离故障节点；快速回滚变更；事后输出复盘与应急预案优化。",
+        "difficulty": "进阶",
+        "category": "故障排查、安全、监控",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "0335abeb847f",
+        "no": "201",
+        "title": "线上服务器CPU iowait持续80%以上，业务响应超时完整排查",
+        "answer": "1. iostat -x 1定位磁盘%util，iotop揪出读写进程；2. 排查业务同步读写、日志刷盘、swap占用；3. 优化：调整IO调度策略、业务异步读写、清理大文件、调优swap参数",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "11aa00f25b97",
+        "no": "202",
+        "title": "机器内存充足，但频繁swap交换卡顿，内核参数调优",
+        "answer": "1. 调小vm.swappiness=1-10，调整vm.vfs_cache_pressure；2. 执行echo 3 > /proc/sys/vm/drop_caches释放cache；3. 排查内存泄漏，进程内存锁定mlock",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d871f2c6b567",
+        "no": "203",
+        "title": "单机百万并发连接，大量TIME_WAIT连接导致端口耗尽解决方案",
+        "answer": "1. 内核调优tcp_tw_reuse=1、tcp_fin_timeout=30；2. 扩大ip_local_port_range端口范围；3. 业务端复用长连接，关闭高频短连接",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ebc27291e60c",
+        "no": "204",
+        "title": "数据库服务器磁盘随机IO打满，业务查询超时优化方案",
+        "answer": "1. iostat定位磁盘，iotop看进程；2. 优化：换SSD、调整IO调度器、数据库索引优化、热点数据缓存、分库分表、读写合并",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "813177afdab9",
+        "no": "205",
+        "title": "服务器负载100但CPU使用率仅20%，定位IO瓶颈完整流程",
+        "answer": "1. 负载是运行队列长度，mpstat看CPU等待占比；2. iostat查IO瓶颈，pidstat看进程锁/中断等待；3. 重点定位wait/si/hi占比",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "32d19fd9d8bb",
+        "no": "206",
+        "title": "线上Java服务频繁OOM杀死，dump文件分析定位内存泄漏",
+        "answer": "1. jmap -dump:live,format=b,file=heap.hprof <pid>生成dump；2. Eclipse MAT分析大对象、泄漏集合、线程栈；3. 定位静态集合、未关闭资源、循环引用",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "edeef9a7c56a",
+        "no": "207",
+        "title": "内核TCP半连接队列溢出，大量请求握手失败修复",
+        "answer": "1. ss -tan state SYN-RECV看队列，调大tcp_max_syn_backlog；2. 调小tcp_synack_retries，开启tcp_syncookies；3. 检查服务端backlog参数",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4f7a4c8ec38c",
+        "no": "208",
+        "title": "多NUMA架构数据库服务器性能忽高忽低，CPU亲和调优",
+        "answer": "1. numactl -H看节点分布，绑定进程到NUMA节点；2. 关闭NUMA balancing，数据库配置numa_aware；3. 均衡CPU内存访问",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6e3674751e48",
+        "no": "209",
+        "title": "磁盘空间100%但df看不到大文件，已删除未释放文件处理",
+        "answer": "1. lsof | grep deleted找已删除未释放的文件；2. kill对应进程或重启服务；3. 清理内核缓存，lsof +L1找硬链接数为0的文件",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6cf5156128cf",
+        "no": "210",
+        "title": "系统日志疯狂刷盘导致磁盘IO打满，日志轮转优化",
+        "answer": "1. 配置logrotate日志轮转，调整syslog异步刷盘；2. 日志写入tmpfs，业务端调整日志级别；3. 关闭debug级日志",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ff030c3fd0a0",
+        "no": "211",
+        "title": "大量僵尸进程堆积，父进程异常不回收解决方案",
+        "answer": "1. ps aux | grep Z找僵尸进程，定位父进程ppid；2. 修复父进程wait回收逻辑，kill父进程（由init收养回收）；3. 定期清理僵尸进程",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "fa7e25408f5b",
+        "no": "212",
+        "title": "服务器网络延迟忽高忽低，网卡中断不均衡优化",
+        "answer": "1. ethtool看网卡配置，irqbalance优化中断均衡；2. 开启网卡RSS多队列，调整tcp_timestamps；3. 检查网卡丢包/错包，更新驱动",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a13068d6ccbd",
+        "no": "213",
+        "title": "大文件传输TCP窗口过小，传输速度慢内核调优",
+        "answer": "1. 调大tcp_wmem/tcp_rmem，开启tcp_window_scaling；2. 关闭tcp_slow_start_after_idle；3. 换BBR拥塞控制算法",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "88849a3a63c7",
+        "no": "214",
+        "title": "透明大页开启导致Redis写入卡顿，关闭方案",
+        "answer": "1. echo never > /sys/kernel/mm/transparent_hugepage/enabled；2. Redis配置disable-transparent-hugepages；3. 开机自启关闭",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "37d52194a5db",
+        "no": "215",
+        "title": "单机文件句柄耗尽，服务无法创建新连接完整修复",
+        "answer": "1. ulimit -n看限制，lsof | wc -l看总数；2. 调大/etc/security/limits.conf nofile配置；3. 排查文件描述符泄漏，重启服务",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d8d6c4e828bd",
+        "no": "216",
+        "title": "内核panic宕机，收集日志定位硬件/软件问题流程",
+        "answer": "1. 配置kdump捕捉vmcore，crash工具分析；2. 定位硬件（内存/CPU/磁盘）、内核bug、驱动问题；3. 排查panic日志",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5a4a5b2ca6e5",
+        "no": "217",
+        "title": "线上服务器内存cache占用90%，业务卡顿缓存回收调优",
+        "answer": "1. 调整vm.vfs_cache_pressure，echo 3 > /proc/sys/vm/drop_caches释放cache；2. 业务端缓存优化，使用大页；3. 调整内存回收策略",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "434f2624c497",
+        "no": "218",
+        "title": "CPU软中断si过高，网卡中断均衡绑定CPU核心",
+        "answer": "1. mpstat看si占比，irqbalance优化网卡中断均衡；2. 绑定中断到指定CPU核心，开启RSS多队列；3. 换高性能网卡",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a74dbb6eee85",
+        "no": "219",
+        "title": "服务器定时任务同一时刻并发打满，任务错峰调度方案",
+        "answer": "1. crontab错峰调度，任务加flock锁控制并发；2. 拆分大任务，分布式任务调度；3. 增加集群资源",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f7ab22cccb87",
+        "no": "220",
+        "title": "虚拟机宿主机IO风暴，导致所有虚拟机业务卡顿隔离方案",
+        "answer": "1. cgroup限制虚拟机IOPS，qemu块设备限速；2. 宿主机IO隔离，存储分层；3. 虚拟机磁盘缓存调整，隔离故障虚拟机",
+        "difficulty": "真题",
+        "category": "系统内核与性能调优",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2652dadd015b",
+        "no": "221",
+        "title": "Shell脚本批量找出服务器30天未访问日志并删除",
+        "answer": "find /log/path -type f -atime +30 -delete，-atime为访问时间，-mtime为修改时间，可加-exec rm -f {} \\;兼容低版本",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "05fe64893571",
+        "no": "222",
+        "title": "awk统计Nginx日志PV、UV、接口响应时间TOP10接口",
+        "answer": "PV：awk '{print $1}' access.log | wc -l；UV：awk '{print $1}' access.log | sort -u | wc -l；响应TOP10：awk '{print $NF,$7}' access.log | sort -nr | head -10",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "af3ec5653c40",
+        "no": "223",
+        "title": "Python脚本批量远程100台服务器检查磁盘使用率告警",
+        "answer": "用paramiko库多线程ssh连接，执行df -h解析磁盘使用率，超过阈值调用钉钉/邮件告警接口",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e3b86c6286bb",
+        "no": "224",
+        "title": "Ansible Playbook一键部署Nginx负载均衡集群",
+        "answer": "Playbook编写，安装nginx、配置upstream负载池、开启服务、健康检查、Keepalived高可用，一键执行",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "06335e088b6d",
+        "no": "225",
+        "title": "编写脚本监控MySQL连接数超过阈值发送钉钉告警",
+        "answer": "mysql -uroot -p -e \"show status like 'Threads_connected'\"，阈值判断，超阈值调用钉钉webhook，crontab定时执行",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4b02429319ee",
+        "no": "226",
+        "title": "Shell并发脚本批量同步文件至多台服务器，限速传输",
+        "answer": "rsync --bwlimit=1000限速，xargs/parallel并发，sshpass免密登录，同步前校验文件，失败自动重试",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3c7e7c8b4ea2",
+        "no": "227",
+        "title": "Python实现简单CI/CD自动打包、灰度发布脚本",
+        "answer": "subprocess执行git pull、maven打包，paramiko远程上传、解压、重启服务，健康检查，灰度发布分批次执行，失败自动回滚",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "83c279649f05",
+        "no": "228",
+        "title": "awk提取日志错误堆栈，统计每日报错TOP5类型",
+        "answer": "awk '/ERROR|Exception/ {print $NF}' error.log | sort | uniq -c | sort -nr | head -5",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b2051c39686f",
+        "no": "229",
+        "title": "Shell脚本自动备份MySQL，压缩上传至异地存储",
+        "answer": "mysqldump全量备份，gzip压缩，rclone/rsync上传异地，定时crontab执行，备份成功校验，清理过期备份",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e3ecf4eacd67",
+        "no": "230",
+        "title": "Ansible角色批量初始化服务器安全基线加固",
+        "answer": "角色化配置，禁用SSH密码登录、防火墙白名单、密码复杂度、定时任务审计、端口管控，批量执行",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d809b73b386c",
+        "no": "231",
+        "title": "编写脚本自动清理Kafka过期日志文件",
+        "answer": "kafka-log-dirs.sh看日志目录，find按修改时间删除，或kafka-configs.sh设置retention.ms自动清理",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f73ec0178c99",
+        "no": "232",
+        "title": "Python监控服务器TCP连接状态，异常连接告警",
+        "answer": "psutil库获取TCP连接状态，统计异常连接数，超阈值告警，定时循环监控",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "16510dc88e20",
+        "no": "233",
+        "title": "Shell秒级定时任务实现（crontab不支持秒级）",
+        "answer": "while true; do 任务; sleep 1; done，或watch -n 1 任务，系统级用systemd定时器",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2c5839d3d5b7",
+        "no": "234",
+        "title": "Ansible批量修改服务器内核TCP优化参数",
+        "answer": "sysctl模块修改/etc/sysctl.conf，sysctl -p生效，批量执行，重启生效配置",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d5cd793a87c7",
+        "no": "235",
+        "title": "Python实现简单LRU本地缓存工具脚本",
+        "answer": "用collections.OrderedDict实现，或functools.lru_cache装饰器，自定义类实现get/set，容量超限淘汰最久未访问节点",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "86e3e78cce76",
+        "no": "236",
+        "title": "脚本自动检测端口存活，下线故障节点",
+        "answer": "nc/python socket检测端口存活，失败则调用下线接口，定时检测，自动故障转移",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6764882e70e1",
+        "no": "237",
+        "title": "Shell日志分级打印脚本（INFO/WARN/ERROR）",
+        "answer": "配置日志文件，编写log_info/log_warn/log_error函数，按级别输出到stdout和文件，带时间戳、进程号",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b89521c05b7f",
+        "no": "238",
+        "title": "Fabric批量执行命令并输出异常服务器清单",
+        "answer": "fabfile.py编写任务，env.hosts配置主机列表，execute执行命令，捕获异常，输出失败主机清单",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ea832e582b11",
+        "no": "239",
+        "title": "脚本实现Nginx流量灰度切分，一键切换全量流量",
+        "answer": "按cookie/ip/uri切分流量，upstream配置灰度池，set变量控制，一键修改配置reload，调整切分比例，故障秒级回滚",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "89b5807e3349",
+        "no": "240",
+        "title": "自动化资产采集脚本输出服务器硬件、系统、服务信息Excel",
+        "answer": "psutil获取硬件/系统信息，subprocess执行命令获取服务信息，pandas写入Excel，定时采集批量输出",
+        "difficulty": "真题",
+        "category": "自动化运维与脚本编程",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "dc25e1fb4e50",
+        "no": "241",
+        "title": "Nginx集群单节点宕机，Keepalived脑裂问题排查修复",
+        "answer": "1. 检查心跳线、防火墙、VRRP配置；2. 关闭抢占nopreempt，调整优先级；3. 增加仲裁节点，确保单节点持有VIP",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e192a0e44e6e",
+        "no": "242",
+        "title": "MySQL主从延迟30分钟，订单统计数据不一致全套优化",
+        "answer": "1. 开启并行复制、半同步复制，拆分大事务；2. 优化从库IO，分库分表，读写分离；3. 主从切换+数据补偿",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4838dff07200",
+        "no": "243",
+        "title": "Redis哨兵主节点宕机，自动切换失败故障排查流程",
+        "answer": "1. 检查哨兵配置、主从心跳、sentinel.conf权限；2. 网络连通性、自动切换配置；3. 手动切换后修复故障节点",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "34f9253f2152",
+        "no": "244",
+        "title": "电商双Nginx负载均衡，后端服务灰度发布不中断业务方案",
+        "answer": "1. 上游配置灰度池，按权重/cookie切分流量；2. 先切1%灰度验证，逐步全量；3. 无中断reload，故障秒级回滚",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "078104c68d4e",
+        "no": "245",
+        "title": "LVS-DR模式后端服务器回包异常，无法访问排查",
+        "answer": "1. 检查arp_ignore/arp_announce配置，后端服务器网关；2. VIP是否绑定lo，防火墙放行；3. 路由配置",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a9ca3a1a50c1",
+        "no": "246",
+        "title": "MySQL读写分离从库查询压力过大，分库分表扩容方案",
+        "answer": "1. 增加从库，读写分离中间件；2. 分库分表，缓存热点数据；3. 优化慢查询，垂直拆分",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c9ac72d8540c",
+        "no": "247",
+        "title": "Redis集群槽位迁移失败，集群无法写入修复流程",
+        "answer": "1. 检查槽位状态、节点连通性，手动迁移槽位；2. 修复集群状态，重新分片；3. 替换故障节点",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f747b8128f2e",
+        "no": "248",
+        "title": "K8s集群Pod大量Pending，资源不足/镜像拉取失败分层排查",
+        "answer": "1. 资源不足：扩容节点CPU/内存；2. 镜像拉取失败：检查镜像地址、密钥、网络；3. 调度策略：污点、亲和性；4. 存储挂载失败",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "86693a647bc1",
+        "no": "249",
+        "title": "K8s Service无法访问后端Pod，网络Calico故障定位",
+        "answer": "1. 检查Pod标签、Service selector、endpoints端点；2. Calico网络策略、kube-proxy状态；3. 防火墙、路由",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5b51446062ca",
+        "no": "250",
+        "title": "容器内程序OOM被杀死，资源限制调整方案",
+        "answer": "1. 调整Docker/K8s内存限制，JVM Xmx设置低于容器内存；2. 开启swap，优化内存使用；3. 排查内存泄漏",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "3a79de17a2cc",
+        "no": "251",
+        "title": "RabbitMQ消息堆积百万，消费者消费缓慢扩容优化",
+        "answer": "1. 增加消费者，优化消费逻辑，批量消费；2. 开启确认机制，扩容集群；3. 拆分队列，死信队列处理失败消息",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "10e9bd382395",
+        "no": "252",
+        "title": "双机热备MySQL，主库磁盘损坏数据丢失，备份恢复流程",
+        "answer": "1. 从库提升为主，备份恢复，binlog增量恢复；2. 数据校验，重新搭建主从；3. 修复故障磁盘",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "49cf9a1e4060",
+        "no": "253",
+        "title": "Nginx 502 Bad Gateway大量报错，后端服务宕机排查",
+        "answer": "1. 检查后端服务是否宕机、端口是否开放；2. proxy_pass配置、超时时间、防火墙；3. 后端服务负载",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "38cee3aa3c27",
+        "no": "254",
+        "title": "K8s HPA自动扩缩容不生效，指标采集故障修复",
+        "answer": "1. 检查metrics-server部署、指标采集；2. HPA配置、资源限制、Pod标签；3. API权限，修复指标采集链路",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ada1e78ef01a",
+        "no": "255",
+        "title": "Docker镜像体积过大，多阶段构建优化至100M内",
+        "answer": "1. 多阶段构建，合并RUN指令，清理yum/apt缓存；2. 用alpine基础镜像，减少层数；3. 删除无用文件",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "cab5a8271bf7",
+        "no": "256",
+        "title": "线上Kafka集群Broker宕机，分区副本自动切换验证",
+        "answer": "1. 检查副本同步、ISR状态，自动切换副本；2. 验证分区可用性，修复宕机节点；3. 均衡副本分布",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "defefe500452",
+        "no": "257",
+        "title": "多机房Nginx动静分离，静态资源CDN加速降本方案",
+        "answer": "1. Nginx分离动态/静态请求，静态资源缓存到CDN；2. 多机房部署，智能DNS解析；3. 跨机房同步静态资源",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c4e83f45f063",
+        "no": "258",
+        "title": "MySQL大事务导致主从延迟，拆分事务优化方案",
+        "answer": "1. 拆分大事务为小事务，减少锁竞争；2. 优化事务提交频率，开启主从并行复制；3. 半同步复制",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8e5473b9ae69",
+        "no": "259",
+        "title": "K8s滚动更新新版本引发业务报错，快速回滚流程",
+        "answer": "1. kubectl rollout undo deployment回滚到上一个版本；2. 暂停更新，排查报错原因；3. 修复后重新发布",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e4f0e2d92184",
+        "no": "260",
+        "title": "Redis持久化AOF刷盘阻塞写入，混合持久化调优",
+        "answer": "1. 开启混合持久化aof-use-rdb-preamble=yes；2. 调整appendfsync策略，AOF重写；3. RDB持久化，扩容磁盘",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "1a0761427a1d",
+        "no": "261",
+        "title": "Nginx长连接超时大量断开，TCP内核参数优化",
+        "answer": "1. 调整keepalive_timeout、tcp_keepalive_time；2. Nginx proxy_read_timeout，客户端心跳；3. 内核tcp_tw_reuse",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6a143ff65081",
+        "no": "262",
+        "title": "Keepalived虚拟IP漂移，多服务器抢占VIP脑裂防范",
+        "answer": "1. 配置nopreempt，调整优先级；2. 心跳线冗余，防火墙放行VRRP；3. 确保单节点持有VIP",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "2a873b6a5d05",
+        "no": "263",
+        "title": "K8s PV存储挂载失败，StorageClass动态供给修复",
+        "answer": "1. 检查StorageClass配置、PV/PVC绑定；2. 存储后端状态、权限、SELinux标签；3. fsType，修复动态供给",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "43049c00adc2",
+        "no": "264",
+        "title": "电商大促峰值Nginx连接数打满，四层LVS扩容方案",
+        "answer": "1. 四层LVS扩容，Nginx集群扩容；2. 长连接复用，内核参数调优；3. 限流，CDN分流，业务降级",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9a93b5bc302b",
+        "no": "265",
+        "title": "Redis缓存雪崩、击穿、穿透线上应急处理方案",
+        "answer": "1. 雪崩：加锁、过期时间打散、多级缓存；2. 击穿：热点key永不过期、互斥锁；3. 穿透：布隆过滤器、接口校验；应急：临时缓存、业务降级",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "369da0e43a86",
+        "no": "266",
+        "title": "MySQL锁等待超时，长事务拆分、索引优化方案",
+        "answer": "1. 拆分长事务，优化索引避免行锁升级；2. 降低事务隔离级别，分库分表；3. 调整锁等待超时，排查死锁",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "be14c54322de",
+        "no": "267",
+        "title": "容器日志输出过大磁盘爆满，logrotate容器日志轮转",
+        "answer": "1. logrotate配置日志轮转，容器日志驱动调整；2. 限制日志大小，定时清理；3. 日志集中采集",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "1dc11182eda8",
+        "no": "268",
+        "title": "多节点Ansible并发执行冲突，任务分布式锁控制",
+        "answer": "1. 分布式锁（redis/文件锁），串行执行关键任务；2. 调整forks并发数，任务分片；3. 避免同时操作同一资源",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d1873f9b80cc",
+        "no": "269",
+        "title": "K8s跨节点Pod网络不通，防火墙、路由、Calico排查",
+        "answer": "1. 检查Calico/Flannel状态、节点防火墙、路由；2. Pod IP段、CNI配置、内核模块；3. 重启网络组件",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "f57782ccab46",
+        "no": "270",
+        "title": "数据库定时备份文件损坏，自动化备份校验机制搭建",
+        "answer": "1. 自动化备份后校验md5/sha256，定期恢复演练；2. 备份文件告警，多副本备份；3. 异地备份",
+        "difficulty": "真题",
+        "category": "集群高可用与架构运维",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "145a003d6810",
+        "no": "271",
+        "title": "服务器被挖矿木马入侵，完整排查、清理、加固全流程",
+        "answer": "1. ps/top看异常进程，netstat看异常连接，lsmod看异常模块；2. 清理木马文件，删除定时任务；3. 修复漏洞，系统加固",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b3014307c032",
+        "no": "272",
+        "title": "SSH暴力爆破日志大量记录，防破解加固方案",
+        "answer": "1. 禁用密码登录，密钥认证，修改SSH端口；2. fail2ban防爆破，限制登录IP；3. 定期更新密钥，关闭root远程登录",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "e9cb97bb705b",
+        "no": "273",
+        "title": "线上系统出现漏洞，批量服务器漏洞修复流程",
+        "answer": "1. 漏洞扫描定位，批量Ansible执行修复脚本；2. 验证修复结果，回归测试；3. 漏洞监控，补丁管理",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "424802ad76fa",
+        "no": "274",
+        "title": "精细化防火墙策略，仅开放业务必要端口白名单设计",
+        "answer": "1. 仅开放业务必要端口，限制源IP，默认拒绝；2. 分区域隔离，定期清理无效规则；3. 日志审计",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a887a7c391b4",
+        "no": "275",
+        "title": "Zabbix监控告警风暴，指标阈值分级收敛优化",
+        "answer": "1. 分级告警，阈值优化，告警抑制；2. 依赖关系配置，降噪规则；3. 告警升级，合并重复告警",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "4033adc753a9",
+        "no": "276",
+        "title": "Prometheus采集上千台服务器指标，存储膨胀优化",
+        "answer": "1. 调整采样间隔，数据压缩，分片存储；2. 定期清理旧数据，远程存储；3. 高可用集群，减少指标cardinality",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "cb597d8f6f20",
+        "no": "277",
+        "title": "服务器异地机房容灾演练，RTO 5分钟恢复方案",
+        "answer": "1. 主备集群同步，故障自动切换，VIP漂移；2. 业务自动重连，定期演练；3. 资源预留，监控告警",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d44c2ba52623",
+        "no": "278",
+        "title": "集中式日志ELK集群日志写入延迟，分片扩容优化",
+        "answer": "1. 扩容ES分片，调整刷新间隔；2. 增加Logstash/Filebeat实例，批量写入；3. 优化查询，集群扩容",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9166ebe325b1",
+        "no": "279",
+        "title": "数据库敏感手机号、身份证日志脱敏方案",
+        "answer": "1. 存储加密，动态脱敏，日志脱敏；2. 视图脱敏，权限控制；3. 加密算法，数据屏蔽",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a3b97ed9c782",
+        "no": "280",
+        "title": "服务器定时任务被恶意篡改，操作日志审计追溯",
+        "answer": "1. rsyslog记录定时任务修改，auditd审计；2. 监控/etc/crontab异常修改告警；3. 追溯操作日志，权限加固",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "b49968826def",
+        "no": "281",
+        "title": "线上带宽打满遭CC攻击，Nginx限流、IP黑名单防御",
+        "answer": "1. Nginx限流，IP黑名单，CDN防护；2. 验证码，接口防重，流量清洗；3. 内核参数调优，异常流量拦截",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "08ac252d2fe7",
+        "no": "282",
+        "title": "SELinux开启导致中间件无法写入文件，放行策略配置",
+        "answer": "1. 配置sebool，添加规则到/etc/selinux/policy；2. restorecon修复文件上下文；3. setenforce临时关闭，永久修改配置",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "6480bfa19a25",
+        "no": "283",
+        "title": "服务器时间不同步引发分布式事务数据错乱修复",
+        "answer": "1. chrony/ntp同步，定时校准，配置时区；2. 监控时间偏移，时间同步服务开机自启；3. 分布式事务时间对齐",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "aeb52654d7ba",
+        "no": "284",
+        "title": "监控大盘无指标数据，采集器、存储分层排查",
+        "answer": "1. 采集器状态、网络连通性、存储端（Prometheus）；2. 指标标签、权限、API状态；3. 分层定位故障点",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d97a3c5a553c",
+        "no": "285",
+        "title": "内部服务器禁止外网访问，防火墙出口管控策略",
+        "answer": "1. 防火墙出口策略，NAT转发，代理服务；2. 禁用外网网关，IP白名单；3. 流量审计，异常访问告警",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "521ad1de50da",
+        "no": "286",
+        "title": "磁盘坏道导致集群节点离线，数据迁移、磁盘更换流程",
+        "answer": "1. 迁移数据到其他节点，卸载磁盘；2. 更换新磁盘，格式化，重新加入集群；3. 数据均衡，坏道磁盘销毁",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "251dcf4fb6b5",
+        "no": "287",
+        "title": "业务凌晨峰值大量告警，自动扩容+错峰调度预案",
+        "answer": "1. 自动扩容，错峰调度，业务降级；2. 限流，资源预留，自动化脚本；3. 定期演练预案，监控告警",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d7351cf5701d",
+        "no": "288",
+        "title": "服务器操作日志留存90天，日志持久化归档方案",
+        "answer": "1. rsyslog/ELK集中采集，日志轮转，压缩归档；2. 异地备份，加密存储；3. 审计跟踪，定期清理过期日志",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "c7929cf2e96c",
+        "no": "289",
+        "title": "第三方渗透测试发现服务器高危漏洞修复清单",
+        "answer": "1. 漏洞分级CVSS评分，修复优先级；2. 修复方案，测试验证，上线部署；3. 漏洞复测，加固方案",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "93b90f59f51a",
+        "no": "290",
+        "title": "Nginx限流配置防爬虫、恶意高频请求",
+        "answer": "1. 限流配置，User-Agent过滤，IP黑名单；2. 验证码，接口防重，流量清洗；3. 正则过滤恶意请求",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7417655c1fa3",
+        "no": "291",
+        "title": "线上突发数据库磁盘满，紧急清理不中断业务流程",
+        "answer": "1. 清理过期日志、备份文件，清理大表历史数据；2. 分批删除不中断业务，vacuum表；3. 释放磁盘空间",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "a5bc570fd46d",
+        "no": "292",
+        "title": "批量服务器root弱密码漏洞修复，强制密码复杂度",
+        "answer": "1. 批量强制修改密码，设置密码复杂度策略；2. 定期更换密码，禁用root远程登录；3. 密钥认证，弱密码扫描",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "5079a5a60b61",
+        "no": "293",
+        "title": "跨机房服务器文件同步rsync限速，不占用业务带宽",
+        "answer": "1. rsync --bwlimit=1000限速，定时错峰同步；2. 增量同步，压缩传输，断点续传；3. 监控带宽",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "bbf6a5b2d37e",
+        "no": "294",
+        "title": "监控指标异常自动触发脚本自愈（重启服务、清理缓存）",
+        "answer": "1. 监控指标触发告警，调用自动化脚本；2. 重启服务、清理缓存、切换节点；3. 健康检查，失败告警，自愈流程闭环",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "9d5175c85f58",
+        "no": "295",
+        "title": "容器逃逸安全风险防范，K8s Pod权限最小化配置",
+        "answer": "1. K8s Pod权限最小化，禁用特权容器；2. SELinux/AppArmor，内核加固；3. 镜像扫描，运行时安全监控，限制容器能力",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "dccdfe803df1",
+        "no": "296",
+        "title": "服务器核心文件/etc/passwd被篡改，入侵溯源处理",
+        "answer": "1. 溯源入侵路径，修复文件，重置密码；2. 加固系统，漏洞修复；3. 监控文件完整性，备份恢复",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "d9297c7e7f36",
+        "no": "297",
+        "title": "大促前全集群巡检清单（磁盘、内存、内核、连接数）",
+        "answer": "1. 磁盘使用率、内存、CPU、内核参数、连接数；2. 服务状态、备份、监控告警、容灾；3. 限流预案、权限",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "7759c392d21f",
+        "no": "298",
+        "title": "日志泄露用户隐私，日志过滤脱敏自动化脚本",
+        "answer": "1. Python/Shell脚本正则过滤敏感字段（手机号、身份证）；2. 日志采集前脱敏，脱敏规则可配置；3. 审计脱敏效果",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "ef68c882de76",
+        "no": "299",
+        "title": "机房断电服务器重启，自启动服务优先级配置",
+        "answer": "1. systemd配置服务启动优先级、依赖关系；2. rc.local配置，服务开机自启顺序；3. 资源预留，启动超时控制",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      },
+      {
+        "id": "8c2ec98f91eb",
+        "no": "300",
+        "title": "线上集群大规模故障应急处理SOP流程",
+        "answer": "1. 故障分级，应急响应流程，人员分工；2. 排查定位，止损措施，恢复流程；3. 复盘总结，预案优化，定期演练",
+        "difficulty": "真题",
+        "category": "安全监控与线上应急",
+        "position": "Linux服务器运维工程师"
+      }
+    ]
+  },
+  {
+    "id": "bank-7e98addbd1",
+    "name": "大数据分析工程师",
+    "source": "大数据练习题库1.xlsx",
+    "created_at": "2026-11-03 17:40:05.412102",
+    "questions": [
+      {
+        "id": "350dd7888389",
+        "no": "1",
+        "title": "什么是大数据3V/5V特征？",
+        "answer": "3V：Volume海量、Velocity高速、Variety多样；5V=3V+Value低价值密度、Veracity数据真实性",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d87afc3b657b",
+        "no": "2",
+        "title": "单机数据库为什么无法处理海量数据？",
+        "answer": "单机器硬件上限（CPU/内存/磁盘容量、IO）；无法横向扩容；海量数据查询、写入性能雪崩；不支持多类型海量非结构化数据存储。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "346c21b2aaa7",
+        "no": "3",
+        "title": "分布式计算、分布式存储核心思想是什么？",
+        "answer": "存储：数据分片分散多节点，副本容错，水平扩容突破单机容量上限；计算：大任务拆分子任务，多节点并行计算，分而治之提升算力。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "150ddefe177a",
+        "no": "4",
+        "title": "CAP定理详细解释，大数据组件分别取舍什么？",
+        "answer": "CAP：分布式系统无法同时满足C一致性、A可用性、P分区容错，网络分区必发生，只能二选二。CP（保一致、丢可用）：HBase、Redis（集群）、MySQL主从；金融、强数据准确场景。AP（保可用、弱一致）：Kafka、Cassandra；互联网高并发、实时流量。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "69e47b73c07a",
+        "no": "5",
+        "title": "BASE理论与ACID区别，适用场景？",
+        "answer": "ACID：刚性事务，强一致，单机OLTP数据库、支付核心交易；BASE：基本可用、柔性状态、最终一致；柔性事务，分布式大数据、高并发互联网业务。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b00b1044a491",
+        "no": "6",
+        "title": "批处理与流处理的区别，举例组件",
+        "answer": "批处理：周期性批量处理全量历史数据，高吞吐高延迟；组件：Spark、MapReduce。流处理：单条/微量实时处理增量数据，低延迟；组件：Flink、Spark Streaming、Kafka Streams。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "eb1eacafe6ab",
+        "no": "7",
+        "title": "什么是数据仓库、数据湖，核心差异？",
+        "answer": "数仓：仅存结构化清洗后数据，固定Schema，面向分析；数据湖：原始全量数据（结构化/半结构化/非结构化），Schema-On-Read，兼顾存储与实时分析。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8e8aaba529f6",
+        "no": "8",
+        "title": "什么是OLAP、OLTP，分别对应什么工具？",
+        "answer": "OLTP：联机事务，增删改查、高并发低延迟；MySQL、Oracle。OLAP：联机分析，海量聚合统计；Hive、Spark SQL、ClickHouse。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9c1615f1678c",
+        "no": "9",
+        "title": "行式/列式存储优缺点",
+        "answer": "行存：按行读写，适合频繁修改、单行查询；缺点：聚合扫描冗余IO。列存：按列存储，压缩率高、聚合快；缺点：单行写入、更新开销大。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0f23e5758160",
+        "no": "10",
+        "title": "分区、分桶概念与作用",
+        "answer": "分区：按时间/地域拆分目录，减少扫描数据量，优化查询；分桶：哈希打散数据文件，优化join、抽样，均衡数据倾斜。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "24bcfc98823a",
+        "no": "11",
+        "title": "什么是数据倾斜？",
+        "answer": "现象：任务分区数据量差距极大，少数Task数据暴增，执行耗时远超其他Task，拖慢整体作业。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "defe6882b870",
+        "no": "12",
+        "title": "什么是元数据？大数据中如何管理？",
+        "answer": "元数据：数据结构、存储路径、分区、字段、血缘等描述信息；大数据由Hive Metastore管理，存储在MySQL。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e3eced20010d",
+        "no": "13",
+        "title": "主从架构及解决的问题",
+        "answer": "一主多从，主节点读写，从节点同步副本；解决单点故障、读写分离、负载均衡、数据备份。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6b936cffe257",
+        "no": "14",
+        "title": "什么是集群高可用？",
+        "answer": "集群关键服务部署多副本，故障自动切换，节点宕机不中断业务，保证服务持续对外响应。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "12af170ba183",
+        "no": "15",
+        "title": "离线/实时数据的区别",
+        "answer": "离线：T+1全量历史数据，小时/天级延迟；实时：数据流增量实时采集，秒/毫秒级延迟。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1469a82840f6",
+        "no": "16",
+        "title": "四层数仓分层及作用",
+        "answer": "ODS：原始日志，原样同步；DWD：明细层，清洗去噪，保留最细粒度；DWS：汇总层，按维度聚合宽表；DM：集市层，业务定制指标，供报表查询。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "179aeac980bc",
+        "no": "17",
+        "title": "拉链表、流水表的区别",
+        "answer": "流水表：仅新增当日增量数据；拉链表：记录每条数据生命周期，存储状态变更历史，用于历史快照查询。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0eb40dbba61c",
+        "no": "18",
+        "title": "布隆过滤器、HyperLogLog原理",
+        "answer": "布隆过滤器：多个哈希映射位数组，快速判断元素是否不存在，节省查询IO；HyperLogLog：基数统计算法，极低内存估算去重总数，近似结果。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c115513ca565",
+        "no": "19",
+        "title": "消息队列在大数据中的作用",
+        "answer": "中间件，异步缓冲消息；削峰填谷、解耦上下游、数据异步传输、持久化日志。代表Kafka。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "773e2eced9bc",
+        "no": "20",
+        "title": "分布式锁实现思路",
+        "answer": "Zookeeper临时节点、Redis SETNX、数据库乐观锁。",
+        "difficulty": "基础",
+        "category": "大数据基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0cd6d5884df1",
+        "no": "21",
+        "title": "Java基本类型与包装类区别",
+        "answer": "基本类型：8种，栈内存，无对象、无方法；包装类：对象，堆内存，可空、有方法，自动装箱拆箱。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "4ef14158c574",
+        "no": "22",
+        "title": "ArrayList与LinkedList底层区别",
+        "answer": "ArrayList：数组，随机查询快，中间插入删除慢；LinkedList：双向链表，插入删除快，随机查询慢。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "261b5783658a",
+        "no": "23",
+        "title": "HashMap底层原理及JDK8优化",
+        "answer": "底层：数组+链表；JDK8：链表过长转红黑树；头插改尾插防循环链表；优化扩容哈希计算。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bb4a66c811f3",
+        "no": "24",
+        "title": "线程4种创建方式及线程安全方案",
+        "answer": "创建：继承Thread、实现Runnable、Callable+Future、线程池；安全：synchronized、Lock、CAS、线程安全集合。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1e8f56a0132d",
+        "no": "25",
+        "title": "JVM五大内存区",
+        "answer": "程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间）。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3400896a0268",
+        "no": "26",
+        "title": "CMS、G1 GC区别",
+        "answer": "CMS：并发标记清除，低停顿，内存碎片严重；G1：分代分区整理，可控停顿，自动压缩碎片。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "4131d1a01faf",
+        "no": "27",
+        "title": "Scala与Java核心差异",
+        "answer": "Scala：函数式+面向对象，默认不可变、隐式转换、高阶函数、简化代码；Java纯面向对象。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "98d01e6b7050",
+        "no": "28",
+        "title": "Scala中函数式、闭包、隐式转换的概念",
+        "answer": "函数式：函数一等公民，可传参返回；闭包：函数捕获外部变量；隐式转换：自动隐式类型转换、隐式参数注入。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ac29953365cc",
+        "no": "29",
+        "title": "Scala List/Set/Map的特点",
+        "answer": "List：不可变链表，头部操作高效；Set去重；Map键值映射，分可变/不可变两套API。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "205b794e5a6a",
+        "no": "30",
+        "title": "UDF/UDTF/UDAF的区别",
+        "answer": "UDF：一进一出；UDTF：一进多出；UDAF：多进一出（聚合）。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "487a70491c2a",
+        "no": "31",
+        "title": "SQL四类连接的区别",
+        "answer": "内连接：两边匹配数据；左连接：左表全量+匹配右表；右连接反之；全连接：左右所有数据。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a902ed33e1fd",
+        "no": "32",
+        "title": "三个排序窗口函数的区别",
+        "answer": "row_number：连续不重复排名；rank：并列跳号；dense_rank：并列不跳号。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8c3b474d48c9",
+        "no": "33",
+        "title": "where/group by/having的执行顺序",
+        "answer": "where过滤原始行 → group by分组 → having过滤分组后聚合结果。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "39b1dd314d5d",
+        "no": "34",
+        "title": "union与union all的区别",
+        "answer": "union自动去重排序，性能差；union all直接合并，不去重，效率更高。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "17078116518c",
+        "no": "35",
+        "title": "SQL分区开窗、累计求和的实现",
+        "answer": "PARTITION BY分区，ORDER BY排序，SUM(字段) OVER(PARTITION xx ORDER xx ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b7a950e54cfe",
+        "no": "36",
+        "title": "exists/in的区别",
+        "answer": "in先查子查询全量再匹配；exists循环外层表，逐行匹配，大表exists性能更优。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7f9bd18542c5",
+        "no": "37",
+        "title": "MySQL B+树索引原理",
+        "answer": "叶子节点存完整行数据，有序链表；非叶子只存索引键，范围查询高效。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c218d5770845",
+        "no": "38",
+        "title": "慢SQL的定义及定位方法",
+        "answer": "执行耗时超出阈值的SQL；定位：slow_query_log、explain执行计划、show profile。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "39dc2fd02448",
+        "no": "39",
+        "title": "笛卡尔积场景与规避方法",
+        "answer": "关联无有效连接条件，行数相乘暴涨；规避：强制关联字段、过滤无效数据。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "67446187627c",
+        "no": "40",
+        "title": "SQL NULL的规则",
+        "answer": "NULL≠任何值，不能用=判断，需is null/is not null；聚合忽略null。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "58e3ffd5aa4b",
+        "no": "41",
+        "title": "SQL去重的写法",
+        "answer": "distinct、group by、row_number开窗过滤重复行。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7da755e6b60e",
+        "no": "42",
+        "title": "SQL常用日期函数",
+        "answer": "date：提取日期；datediff：计算日期间隔；date_add：日期加减天数。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8d513c010040",
+        "no": "43",
+        "title": "SQL常用字符串函数",
+        "answer": "切割：split；拼接：concat、concat_ws带分隔符。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7927be6e6a87",
+        "no": "44",
+        "title": "SQL聚合函数的场景",
+        "answer": "sum求和、count计数、avg平均值、min/max极值，分组统计指标。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "39d4625e006f",
+        "no": "45",
+        "title": "子查询优化方法",
+        "answer": "改用JOIN关联、提前过滤数据、谓词下推、避免多层嵌套。",
+        "difficulty": "基础",
+        "category": "Java/Scala/SQL基础",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1d379a33b847",
+        "no": "46",
+        "title": "Hadoop三大组件",
+        "answer": "HDFS分布式存储、MapReduce计算引擎、YARN资源调度。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a6c775b53fd6",
+        "no": "47",
+        "title": "NameNode、DataNode的作用",
+        "answer": "NN：管理元数据、文件目录、分配块；DN：存储真实数据块，上报块信息。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c8e8f072f868",
+        "no": "48",
+        "title": "HDFS读写流程",
+        "answer": "写：客户端→NN分配块→DN流水线副本写入；读：客户端向NN查块位置，就近DN读取数据。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d511e89b5ca1",
+        "no": "49",
+        "title": "fsimage、edits的作用",
+        "answer": "fsimage：完整元数据快照；edits：增量元数据操作日志。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "11a677f72d7b",
+        "no": "50",
+        "title": "SecondaryNameNode的作用",
+        "answer": "定期合并fsimage+edits，生成新镜像，减轻NN压力，元数据备份。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e526c6932c6c",
+        "no": "51",
+        "title": "HDFS副本机制",
+        "answer": "默认3副本；同节点、同机架、跨机架三层存放，防机架故障丢数。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d21bcf77b39e",
+        "no": "52",
+        "title": "HDFS常用shell命令",
+        "answer": "put上传、get下载、mkdir建目录、rm删除、cat查看文件。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "290ac0966e03",
+        "no": "53",
+        "title": "HDFS小文件危害",
+        "answer": "占满NN元数据内存，启动/查询变慢，MapReduce产生大量Task，资源浪费。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5bd9e69c265e",
+        "no": "54",
+        "title": "MapReduce完整流程",
+        "answer": "输入分片→Map阶段→Shuffle（分区、排序、合并）→Reduce阶段→输出。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3b3bd15c63ce",
+        "no": "55",
+        "title": "Map/Reduce的职责",
+        "answer": "Map：拆分、过滤、输出KV；Reduce：分组聚合，汇总Map输出结果。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bf39af8c0c7a",
+        "no": "56",
+        "title": "Shuffle流程",
+        "answer": "分区→本地排序→溢写磁盘→归并排序→拉取对应分区数据给Reduce。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ac0053583e03",
+        "no": "57",
+        "title": "Combiner的作用及限制",
+        "answer": "本地Map端预聚合，减少网络传输；限制：聚合运算满足交换律结合律。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2f8dda1ed642",
+        "no": "58",
+        "title": "默认Partitioner的原理",
+        "answer": "HashPartitioner，按key哈希对Reduce数量取模分配分区。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2452a6fe3853",
+        "no": "59",
+        "title": "MR排序机制",
+        "answer": "Map端局部排序，Reduce端全局排序，默认按key升序。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "971c5b3290e2",
+        "no": "60",
+        "title": "RM、NM的作用",
+        "answer": "ResourceManager：全局资源调度、分配容器；NodeManager：单节点资源管理，启动Container。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "05f64d630e54",
+        "no": "61",
+        "title": "Container的概念",
+        "answer": "YARN资源容器，封装CPU内存，所有MR/Spark任务运行在Container。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "385a58c9db8d",
+        "no": "62",
+        "title": "YARN三种调度器",
+        "answer": "FIFO：先进先出，简单低效；容量调度：多队列资源隔离；公平调度：自动均衡各任务资源。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c64464ae211c",
+        "no": "63",
+        "title": "Hive介绍及底层存储",
+        "answer": "Hive：HDFS上的数据仓库，SQL转MR/Spark任务；底层依赖HDFS存储数据。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "706ef01c03fb",
+        "no": "64",
+        "title": "Hive内部表/外部表区别",
+        "answer": "内部表：数据元数据均归Hive管理，删表连带删HDFS文件；外部表：仅管理元数据，删表不删原始文件。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "810969b6fe79",
+        "no": "65",
+        "title": "Hive分区表的作用",
+        "answer": "PARTITION BY创建分区目录；查询加分区过滤，大幅减少扫描文件。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8f3ea17bcce3",
+        "no": "66",
+        "title": "Hive分桶表场景",
+        "answer": "大表JOIN、数据抽样、全局去重，提升查询效率。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2886b3051e0a",
+        "no": "67",
+        "title": "Hive复杂类型",
+        "answer": "array数组、map键值、struct结构体。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f1dac2cc2dcb",
+        "no": "68",
+        "title": "Hive三种加载数据方式",
+        "answer": "load：本地/HDFS移动文件；insert：查询结果写入；外部表：关联已有HDFS路径。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d6e2bbbe8350",
+        "no": "69",
+        "title": "Hive执行引擎",
+        "answer": "MapReduce（默认老引擎）、Tez（DAG减少落盘）、Spark（内存计算更快）。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f004ef4c70d9",
+        "no": "70",
+        "title": "HBase介绍及适用场景",
+        "answer": "分布式列式NoSQL；海量实时随机读写，日志存储、用户画像。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f4f074c6b206",
+        "no": "71",
+        "title": "HBase表结构",
+        "answer": "RowKey唯一行标识；列族：一组列；列：列族:列名；时间戳：多版本数据。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d3e5d4659545",
+        "no": "72",
+        "title": "Region、RegionServer的作用",
+        "answer": "Region：表分片，按RowKey范围拆分；RS：管理多个Region，负责读写。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "cb147fd28c60",
+        "no": "73",
+        "title": "Zookeeper在大数据生态的作用",
+        "answer": "集群元数据注册、主从选举、分布式锁、节点状态监控、存储偏移量。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "fed12d01598f",
+        "no": "74",
+        "title": "Zookeeper临时/持久节点区别",
+        "answer": "持久：创建后永久存在，手动删除；临时：客户端断开自动销毁。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "299f1b5604a1",
+        "no": "75",
+        "title": "Zookeeper半数存活机制",
+        "answer": "集群过半节点正常服务，集群可用，容忍少数节点故障。",
+        "difficulty": "基础",
+        "category": "Hadoop生态",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2fa206b0a59c",
+        "no": "76",
+        "title": "Spark对比MapReduce优势",
+        "answer": "内存计算，中间结果不落盘；DAG调度减少IO；算子丰富，批流一体，速度快10~100倍。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3b73de8f7ba6",
+        "no": "77",
+        "title": "RDD五大特性",
+        "answer": "分区、计算函数、依赖关系、分区器、优先位置。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8ee6298e126c",
+        "no": "78",
+        "title": "Spark转换/行动算子区别",
+        "answer": "转换（lazy懒加载）：map/filter等，返回新RDD；行动（触发任务）：count/save/collect，产生结果。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "508114773a83",
+        "no": "79",
+        "title": "Spark宽窄依赖、血缘的概念",
+        "answer": "窄依赖：父RDD分区仅被子一个分区依赖；宽依赖（shuffle）：多分区依赖；Lineage血缘：记录RDD依赖链，故障自动重算恢复。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a056048db439",
+        "no": "80",
+        "title": "Driver、Executor职责",
+        "answer": "Driver：主进程，构建DAG、调度任务；Executor：节点执行Task，内存缓存数据。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6e1faa8028c9",
+        "no": "81",
+        "title": "RDD/DataFrame/Dataset的区别",
+        "answer": "RDD：强类型、编程API；DataFrame：弱类型、带Schema；Dataset=DF+强类型。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c931e4c3f0d9",
+        "no": "82",
+        "title": "Spark SQL、谓词下推的概念",
+        "answer": "Spark SQL：RDD封装SQL查询；谓词下推：过滤条件下压存储层，提前过滤减少数据读取。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ffdcdad72552",
+        "no": "83",
+        "title": "Spark分区控制方法",
+        "answer": "repartition/coalesce、读取时指定分区、调整并行度参数spark.sql.shuffle.partitions。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9d8b9677915e",
+        "no": "84",
+        "title": "Spark Streaming流程",
+        "answer": "数据流切微批，周期性拉取数据生成RDD批处理。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d3fe3e8296ec",
+        "no": "85",
+        "title": "Flink介绍及流批一体概念",
+        "answer": "分布式实时流处理引擎；流为底层原生模型，批是有限流，一套API统一处理。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "319e4f87b442",
+        "no": "86",
+        "title": "Flink三层API",
+        "answer": "StreamDataStream底层流API；TableAPI；Flink SQL（最高层，易上手）。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0ad6c3ba7bf2",
+        "no": "87",
+        "title": "Flink Task、Slot的概念",
+        "answer": "Task：最小执行单元；Slot：Executor资源槽，分配给Task运行。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "285649e10d7f",
+        "no": "88",
+        "title": "Flink状态的概念",
+        "answer": "算子中间计算数据（聚合、窗口结果），持久化实现断点续跑。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "35b67024ab86",
+        "no": "89",
+        "title": "Flink三种处理语义",
+        "answer": "at-most-once：最多一次，可能丢数；at-least-once：至少一次，可能重复；exactly-once：精确一次，不丢不重。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "232feb08bbd4",
+        "no": "90",
+        "title": "Checkpoint的作用",
+        "answer": "周期性保存算子状态快照，故障从快照恢复，实现exactly-once。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "4b4f4e21ab40",
+        "no": "91",
+        "title": "Kafka架构核心组件",
+        "answer": "Broker服务节点；Topic业务主题；Partition分片；副本保证高可用。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2fc79ddf403f",
+        "no": "92",
+        "title": "Kafka生产者发送流程",
+        "answer": "数据→分区器选分区→缓存批量→发送Broker，等待ACK。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e89e961eecf2",
+        "no": "93",
+        "title": "Kafka消费者组概念",
+        "answer": "同一组消费者分摊Topic分区；不同组独立消费全量数据。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e31618a6f978",
+        "no": "94",
+        "title": "offset作用，自动提交与手动提交区别",
+        "answer": "offset：分区消费位置；自动：定时提交，易丢/重复；手动：业务处理完成再提交，精准控制。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b552e8861438",
+        "no": "95",
+        "title": "Kafka高吞吐核心原因",
+        "answer": "顺序写磁盘、零拷贝、批量收发、页缓存、分区并行。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f05e34a35d6e",
+        "no": "96",
+        "title": "Kafka消息分区分配策略",
+        "answer": "range、round-robin、sticky粘性分配。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ce440ceacea5",
+        "no": "97",
+        "title": "Spark读取Kafka数据基础写法",
+        "answer": "Spark Streaming/Structured Streaming对接Kafka，拉取分区数据流生成RDD/DF。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "39e1eed49eb9",
+        "no": "98",
+        "title": "Flink消费Kafka基础流程",
+        "answer": "FlinkKafkaConsumer作为源，读取消息，自动维护offset至Checkpoint。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3d74826cd5df",
+        "no": "99",
+        "title": "大数据实时链路基础流程：日志采集-Kafka-Flink-Hive",
+        "answer": "日志采集工具(Flume/LogAgent) → Kafka消息缓冲 → Flink实时清洗聚合 → Hive实时分区表存储。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "946b471b9e41",
+        "no": "100",
+        "title": "离线数仓标准数据流转流程",
+        "answer": "业务库/日志 → ODS层同步 → DWD明细清洗 → DWS汇总层 → DM业务集市 → 报表查询。",
+        "difficulty": "基础",
+        "category": "Spark/Flink/Kafka",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1b27acbb9374",
+        "no": "101",
+        "title": "HDFS小文件解决方案：合并、CombineFileInputFormat",
+        "answer": "小文件危害NN内存溢出、Task过多。方案：离线定时合并小文件；使用CombineFileInputFormat合并分片，减少Map任务数。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7e6ebbe10c18",
+        "no": "102",
+        "title": "HDFS NameNode性能瓶颈优化手段",
+        "answer": "优化元数据加载、开启NN HA、调整edits日志刷盘频率、小文件合并、归档冷数据、多目录隔离元数据压力。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b7c0b2f01133",
+        "no": "103",
+        "title": "HDFS磁盘IO优化、多目录存储策略",
+        "answer": "多磁盘目录分散块存储，单盘故障不影响整体；适配机械盘/SSD分层；优化预读、缓存、减少随机IO。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "65b27b284322",
+        "no": "104",
+        "title": "MapReduce Shuffle深度流程，环形缓冲区溢写机制",
+        "answer": "环形缓冲区默认100M，数据满80%异步溢写磁盘；流程：分区→排序→溢写→归并→拉取数据到Reduce。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "fb5322229220",
+        "no": "105",
+        "title": "MapReduce参数调优：map内存、reduce内存、排序缓冲区",
+        "answer": "根据任务复杂度调大map/reduce堆内存；增大sort缓冲区减少溢写次数，提升Shuffle速度。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "42bb28f9a8eb",
+        "no": "106",
+        "title": "MapReduce数据倾斜分类与通用解决思路",
+        "answer": "分为Key倾斜、空值倾斜、热点倾斜。通用：加盐打散、局部聚合、过滤脏数据、Map端预聚合、拆分热点Key。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9bea792a6d05",
+        "no": "107",
+        "title": "YARN资源调度参数优化，容器内存CPU限制",
+        "answer": "合理设置单容器内存、虚拟核数；限制最大并发容器；杜绝超配资源，提升集群利用率。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "012d6e9fa646",
+        "no": "108",
+        "title": "YARN集群资源抢占、队列资源隔离配置",
+        "answer": "多队列隔离业务；开启资源抢占保障核心业务；设置队列最大最小资源、权重优先级。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5a9a0e5de2fd",
+        "no": "109",
+        "title": "Hive底层执行计划Explain解读",
+        "answer": "可查看Job依赖、Shuffle次数、分区扫描、Join顺序、数据扫描量，定位低效SQL瓶颈。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "15b73178b827",
+        "no": "110",
+        "title": "Hive分区裁剪、谓词下推失效场景",
+        "answer": "子查询、函数包裹分区字段、隐式类型转换、视图嵌套会导致裁剪/下推失效，全表扫描。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "195cd0d0270b",
+        "no": "111",
+        "title": "Hive动态分区参数与性能问题",
+        "answer": "动态分区不控量易生成大量小文件；需开启动态分区严格模式、限制最大分区数、事后合并小文件。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d8f3c117c3d3",
+        "no": "112",
+        "title": "Hive大表join倾斜解决方案",
+        "answer": "空Key过滤、加盐打散、MapJoin、倾斜Key单独处理、拆分SQL、开启倾斜优化参数。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "96507d4a8b72",
+        "no": "113",
+        "title": "Hive数据压缩算法对比：Snappy/GZIP/LZO",
+        "answer": "Snappy速度快、压缩率低；GZIP压缩率高、速度慢；LZO可切分、均衡吞吐与压缩，大数据最常用。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9e12c1291698",
+        "no": "114",
+        "title": "Hive分桶join、mapjoin适用场景",
+        "answer": "小表大表Join用MapJoin；两张大表等值关联、抽样查询适用分桶Join，避免全局Shuffle。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7432672e45af",
+        "no": "115",
+        "title": "Hive元数据元数据库MySQL优化",
+        "answer": "分库分表、索引优化、慢SQL治理、连接池调优、定时清理冗余元数据。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f3fffaded170",
+        "no": "116",
+        "title": "HBase RowKey设计三原则，冷热数据分离",
+        "answer": "三原则：唯一、有序、散列；冷热分离：热数据SSD、冷数据归档HDFS，减少Region热点。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "63cf9090d2d7",
+        "no": "117",
+        "title": "HBase预分区设计避免Region分裂热点",
+        "answer": "提前按RowKey规则预分区，避免线上自动分裂造成Region迁移、读写热点。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5e929c56414f",
+        "no": "118",
+        "title": "HBase读写缓存BlockCache、MemStore调优",
+        "answer": "读缓存BlockCache提升查询命中率；写缓存MemStore合理阈值，减少频繁flush产生小文件。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2ab67bdf339c",
+        "no": "119",
+        "title": "Zookeeper集群性能优化，会话超时参数",
+        "answer": "调优tickTime、session超时、最大连接数；集群过半存活、减少Watcher风暴。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c729013c839d",
+        "no": "120",
+        "title": "Hadoop集群数据容灾、跨机房备份方案",
+        "answer": "HDFS多副本、快照、回收站；跨机房定时distcp同步、关键数据双活备份。",
+        "difficulty": "进阶",
+        "category": "Hadoop深度调优",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "94224c63fcbc",
+        "no": "121",
+        "title": "Spark任务提交流程，Driver通信机制",
+        "answer": "客户端提交→创建Driver→Driver申请资源→启动Executor→Executor反向注册Driver→调度执行Task。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "759b52a482a7",
+        "no": "122",
+        "title": "RDD血缘容错机制，checkpoint与cache区别",
+        "answer": "血缘重算容错；Cache内存缓存、丢失重算；Checkpoint持久化磁盘、切断血缘，故障无需重算上游。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1ccbacf0ea5a",
+        "no": "123",
+        "title": "Spark宽窄依赖划分依据，Stage划分规则",
+        "answer": "窄依赖：一子依赖一父；宽依赖（Shuffle）多子依赖多父。遇到宽依赖切Stage。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d824031452b5",
+        "no": "124",
+        "title": "Shuffle两种SortShuffleManager底层差异",
+        "answer": "普通SortShuffle产生大量溢写文件；优化版合并小文件，减少磁盘IO与文件句柄开销。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f00f0cd514f7",
+        "no": "125",
+        "title": "Spark shuffle数据倾斜完整解决方案",
+        "answer": "过滤脏Key、加盐打散、拆分热点、局部聚合、AQE自动倾斜优化、广播小表。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "839c615a61b4",
+        "no": "126",
+        "title": "Spark内存模型：堆内、堆外内存划分",
+        "answer": "堆内：执行内存、存储内存、预留内存；堆外：DirectMemory，用于Shuffle、网络缓冲。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1ca26710bcf8",
+        "no": "127",
+        "title": "Executor内存参数精准调优",
+        "answer": "根据任务IO密集/CPU密集配比执行内存与存储内存，避免OOM、频繁GC、Spill溢写。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3a4168d899d4",
+        "no": "128",
+        "title": "Spark并行度合理设置依据",
+        "answer": "并行度≈核心数2–3倍；匹配Kafka分区数、分区数据量，避免过小倾斜、过大任务调度开销。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5352cd797c9f",
+        "no": "129",
+        "title": "DataFrame Catalyst优化器完整流程",
+        "answer": "解析→绑定→优化→生成物理执行计划，自动优化SQL逻辑。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "02f3fa2830ff",
+        "no": "130",
+        "title": "谓词下推、列裁剪、常量折叠优化原理",
+        "answer": "谓词下推：过滤前置减少读取；列裁剪：只读取需要字段；常量折叠：预计算固定值减少计算量。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6f606ab84007",
+        "no": "131",
+        "title": "Spark UDF性能缺陷，UDAF优化方案",
+        "answer": "普通UDF无法被Catalyst优化、序列化开销大；优先内置函数，复杂聚合使用优化UDAF/UDTF。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6e67767296c7",
+        "no": "132",
+        "title": "Spark动态资源分配原理与配置",
+        "answer": "任务空闲自动释放Executor，任务上涨自动扩容，提升集群资源利用率。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3e97479eeb32",
+        "no": "133",
+        "title": "Spark Streaming背压机制原理",
+        "answer": "根据Receiver接收速率动态限制批次消费速度，避免队列堆积、Executor OOM。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "58e3478bdd73",
+        "no": "134",
+        "title": "Structured Streaming水印watermark底层机制",
+        "answer": "水印标记最晚允许延迟时间，自动清理过期状态，解决无限状态膨胀。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "62cb4ce2b880",
+        "no": "135",
+        "title": "Structured Streaming三种输出模式Complete/Append/Update",
+        "answer": "Append：仅新增输出；Update：更新变更行；Complete：全量结果输出，适合聚合。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ebb50c0310e4",
+        "no": "136",
+        "title": "Spark读取Kafka Offset丢失、重复消费处理",
+        "answer": "手动提交Offset、开启Checkpoint、 Exactly-Once配置，避免丢失与重复。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "37d1a3853514",
+        "no": "137",
+        "title": "Spark读写HBase最佳实践",
+        "answer": "批量读写、分区匹配、RowKey预分区、关闭不必要快照、缓存热点数据。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c8224cc34289",
+        "no": "138",
+        "title": "Spark读写Hive分区表性能优化",
+        "answer": "分区裁剪、动态分区合并、过滤前置、并行读取、小文件合并。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ad168ae817b5",
+        "no": "139",
+        "title": "Spark广播变量Broadcast原理与使用限制",
+        "answer": "大只读变量广播到所有Executor，避免每个Task拷贝；不适合超大变量、频繁更新变量。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5e9d22f328b1",
+        "no": "140",
+        "title": "Spark累加器Accumulator线程安全问题",
+        "answer": "Driver端最终聚合结果线程安全；Task端重试会导致数据累加重复，需幂等处理。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "13896c5ef9ae",
+        "no": "141",
+        "title": "Spark大文件读取分片优化",
+        "answer": "调整分片大小、合并小文件、适配HDFS块大小，减少Task数量波动。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5c389f8a07ef",
+        "no": "142",
+        "title": "Spark本地磁盘溢出参数调优",
+        "answer": "优化Spill阈值、磁盘目录多盘打散，避免单盘IO瓶颈。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7d7c2ba59035",
+        "no": "143",
+        "title": "Spark3新特性动态分区、自适应执行AQE",
+        "answer": "AQE自动调整分区、自动合并小分区、自动处理数据倾斜、动态优化Join策略。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8e43bad9c31a",
+        "no": "144",
+        "title": "AQE自动处理数据倾斜原理",
+        "answer": "运行时统计分区数据量，识别热点Key，自动拆分倾斜分区、重分布数据。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ca8c695b1dab",
+        "no": "145",
+        "title": "Spark集群高可用Driver故障恢复",
+        "answer": "Driver HA、Checkpoint恢复任务状态、重启后接续运行，不丢失数据。",
+        "difficulty": "进阶",
+        "category": "Spark核心深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2f9a400f782b",
+        "no": "146",
+        "title": "Flink流批一体底层执行原理",
+        "answer": "以实时流为基础模型，批处理是有界流，同一套API统一处理离线、实时任务。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d81d40724b97",
+        "no": "147",
+        "title": "Flink任务链Operator Chain机制，如何断开链",
+        "answer": "相邻算子同并行度可链化减少开销；设置并行度不同、开启链断开、手动disable chain可断链。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "52774a7865f6",
+        "no": "148",
+        "title": "Task调度、Slot共享与资源隔离",
+        "answer": "Slot共享允许多个Job共享槽位提升利用率；关键业务可开启Slot隔离保障资源。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "56ec010d8f7c",
+        "no": "149",
+        "title": "Flink状态后端：Memory/RocksDB/FSState对比",
+        "answer": "Memory内存快、易丢；FSState持久化；RocksDB磁盘状态、支持超大状态、增量CKP。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "848a7128db11",
+        "no": "150",
+        "title": "RocksDB状态增量Checkpoint原理",
+        "answer": "只上传本次变更状态数据，不整量全量上传，大幅减少CKP网络与磁盘开销。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b20ade3f29c8",
+        "no": "151",
+        "title": "Checkpoint完整流程，barrier对齐机制",
+        "answer": "JobManager下发Barrier→对齐等待所有通道Barrier到达→快照状态→持久化完成CKP。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9de45ca58225",
+        "no": "152",
+        "title": "对齐Checkpoint与非对齐Checkpoint适用场景",
+        "answer": "对齐：数据精准一致、延迟低；非对齐：超高吞吐、避免对齐阻塞、容忍少量乱序。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "cf6b9ab46ee8",
+        "no": "153",
+        "title": "Flink Exactly-Once语义两阶段提交2PC实现",
+        "answer": "预提交阶段、正式提交阶段，结合CKP实现消费+输出精准一次。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "44cb22305248",
+        "no": "154",
+        "title": "Flink水印三种类型，乱序数据处理方案",
+        "answer": "固定水印、单调水印、自定义水印；通过水印+窗口+侧输出处理乱序。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "051736eef9b2",
+        "no": "155",
+        "title": "迟到数据侧输出流处理",
+        "answer": "超出水印最大延迟的数据，进入侧输出流单独处理，不丢失迟到数据。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e8105ad2bb8d",
+        "no": "156",
+        "title": "Flink窗口分类：滚动、滑动、会话、全局窗口",
+        "answer": "滚动无重叠；滑动重叠；会话空闲触发；全局全量触发，适合特殊聚合。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "13bc536a8730",
+        "no": "157",
+        "title": "窗口触发器Trigger、驱逐器Evictor机制",
+        "answer": "Trigger决定何时触发计算；Evictor决定清理窗口数据，控制内存占用。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8921fd269269",
+        "no": "158",
+        "title": "KeyBy热点数据倾斜解决方案",
+        "answer": "加盐打散、局部聚合、热点Key拆分、异步聚合、状态拆分。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a3fcbc657261",
+        "no": "159",
+        "title": "Flink CDC原理，增量同步MySQL数据",
+        "answer": "基于Binlog实时增量抓取，无需全量扫描，低延迟同步库表数据。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0e8c85f0c468",
+        "no": "160",
+        "title": "Flink读取Kafka分区与并行度匹配规则",
+        "answer": "并行度 ≤ Kafka分区数，最佳匹配：并行度=分区数，最大化消费吞吐。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5df88aa50cad",
+        "no": "161",
+        "title": "Flink消费Kafka offset持久化到Checkpoint",
+        "answer": "Offset随CKP一起持久化，故障恢复精准接续消费，无丢失无重复。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "fa85cacbd173",
+        "no": "162",
+        "title": "Flink TableAPI时间属性定义（处理时间/事件时间）",
+        "answer": "处理时间：系统机器时间；事件时间：数据自带业务时间，可防乱序、延迟。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e22684996021",
+        "no": "163",
+        "title": "Flink SQL CDC整库同步配置",
+        "answer": "开启CDC数据源、增量读取、动态监听表结构变更、整库实时同步。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f2e307a530ea",
+        "no": "164",
+        "title": "Flink集群HA高可用配置，JobManager故障恢复",
+        "answer": "双JM高可用、ZK持久化任务元数据，JM宕机自动切换、任务重启恢复。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8bd2d6b8dc74",
+        "no": "165",
+        "title": "Flink反压产生原因与完整调优方案",
+        "answer": "下游处理慢阻塞上游；方案：调大槽位、优化下游逻辑、拆分任务、增大缓冲、状态调优。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e647d0653fd4",
+        "no": "166",
+        "title": "Flink任务失败自动重启策略配置",
+        "answer": "固定重启、故障率重启、超时重启配置，保障实时任务稳定运行。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5fd58008cfc6",
+        "no": "167",
+        "title": "Flink UDF、异步IO优化数据库查询",
+        "answer": "异步IO批量查询DB，消除同步等待阻塞，大幅提升吞吐。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9bd394a44bc8",
+        "no": "168",
+        "title": "Flink状态过期TTL配置，清理过期数据",
+        "answer": "配置状态TTL自动清理过期Key，防止状态无限膨胀、OOM。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "dfb1610248d2",
+        "no": "169",
+        "title": "实时数仓分层DWD实时层数据设计",
+        "answer": "实时DWD层：清洗、脱敏、补字段、去脏数据，保留明细粒度。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5fea2b75f66e",
+        "no": "170",
+        "title": "实时数据数据延迟分层优化手段",
+        "answer": "链路精简、并行度匹配、小文件合并、反压调优、增量计算、减少Shuffle。",
+        "difficulty": "进阶",
+        "category": "Flink实时计算深度",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "534af1fe1a5c",
+        "no": "171",
+        "title": "Kafka分区副本同步机制，ISR集合作用",
+        "answer": "ISR：可同步的副本集合；Leader写、Follower同步，故障从ISR选举新Leader保障高可用。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "553992b1eb9e",
+        "no": "172",
+        "title": "Kafka Leader选举规则，故障自动切换",
+        "answer": "ISR存活副本中选新Leader，保证数据不丢失、服务快速恢复。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "83d9f0459bde",
+        "no": "173",
+        "title": "Kafka消息零拷贝原理提升吞吐",
+        "answer": "sendfile零拷贝，减少内核态用户态切换，极大提升磁盘网络吞吐。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e907247ba75f",
+        "no": "174",
+        "title": "Kafka日志分段Segment存储机制",
+        "answer": "大日志拆分为多个Segment，按偏移量切分，便于删除、检索、过期清理。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "fe67f19685e7",
+        "no": "175",
+        "title": "Kafka消息压缩批量发送优化",
+        "answer": "批量聚合+消息压缩，降低网络IO、提升吞吐、减少小消息。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f1773842d552",
+        "no": "176",
+        "title": "Kafka消费者rebalance触发场景与危害",
+        "answer": "上下线消费者、增减分区触发重平衡；导致消费暂停、重复消费、数据抖动。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "af55b93ef014",
+        "no": "177",
+        "title": "避免消费者频繁rebalance调优参数",
+        "answer": "调大会话超时、心跳间隔、最大轮询时间，减少不必要重平衡。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c822c3c9d384",
+        "no": "178",
+        "title": "Kafka重复消费、消息丢失完整解决方案",
+        "answer": "CKP持久化Offset、手动提交、幂等消费、事务机制，规避丢失与重复。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a3e836ea617b",
+        "no": "179",
+        "title": "Kafka集群磁盘、网络性能调优",
+        "answer": "多磁盘挂载、顺序写优化、网络缓冲区调优、压缩批量参数优化。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "740fb870e3a4",
+        "no": "180",
+        "title": "Kafka消息积压排查与紧急扩容方案",
+        "answer": "排查消费速度慢、逻辑阻塞、数据倾斜；扩容分区、增加消费者、拆分任务、异步处理。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "26e633536b76",
+        "no": "181",
+        "title": "维度建模星型模型、雪花模型优缺点",
+        "answer": "星型：维度表少、关联简单、查询快；雪花：维度分层、冗余低、查询复杂。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "559a6b0bbb7d",
+        "no": "182",
+        "title": "缓慢变化维SCD1/SCD2/SCD3实现方案",
+        "answer": "SCD1直接覆盖；SCD2历史拉链留存；SCD3保留最近变更字段。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f51d5c80f754",
+        "no": "183",
+        "title": "实时拉链表实现，数据更新不重复",
+        "answer": "实时捕获变更、新旧数据拆分、时间段闭环，实现无重复历史快照。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e70aaf11a236",
+        "no": "184",
+        "title": "大宽表设计优劣，分层解耦思路",
+        "answer": "宽表查询快、冗余高；分层ODS/DWD/DWS解耦，兼顾性能与可维护性。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "546cf72580bd",
+        "no": "185",
+        "title": "数据质量校验规则：完整性、唯一性、准确性",
+        "answer": "完整性无空值缺失；唯一性无重复；准确性业务逻辑合规、数值正确。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "af8b865644d8",
+        "no": "186",
+        "title": "大数据任务调度Azkaban/Oozie工作流配置",
+        "answer": "配置定时调度、上下游依赖、重试机制、流程编排。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "48c459a4c6c0",
+        "no": "187",
+        "title": "任务依赖、失败重试、告警配置方案",
+        "answer": "配置多级重试、超时终止、邮件短信告警、失败断点续跑。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b1135f347892",
+        "no": "188",
+        "title": "数据湖Hudi基础原理，增量更新、MergeOnRead",
+        "answer": "支持海量数据增量更新、删除；MergeOnRead读时合并，适合更新多场景。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c280f25b7694",
+        "no": "189",
+        "title": "Hudi三种表类型COW/MOR/RT适用场景",
+        "answer": "COW写慢读快；MOR读写均衡；RT超低延迟实时查询。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ed356fc26478",
+        "no": "190",
+        "title": "ClickHouse底层存储、分区索引优化",
+        "answer": "列式存储、主键索引、分区裁剪、稀疏索引，极速OLAP聚合查询。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a22ef956cc14",
+        "no": "191",
+        "title": "Redis缓存大数据热点数据，淘汰策略",
+        "answer": "缓存高频热点Key；LRU/LFU/TTL淘汰策略控制内存容量。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8a5bb6797d06",
+        "no": "192",
+        "title": "Redis分布式锁红锁方案优缺点",
+        "answer": "多节点锁更可靠；缺点复杂度高、网络开销大、实际生产极少用。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8d44bd12f2b6",
+        "no": "193",
+        "title": "MySQL分库分表底层思路，Sharding基础",
+        "answer": "按时间/ID哈希分片，拆分大表、降低单表数据量、提升读写性能。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f34b7aa29cd5",
+        "no": "194",
+        "title": "十亿级数据UV统计HyperLogLog误差调优",
+        "answer": "调优精度参数，极低内存实现近似去重统计，控制误差范围。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b1c16631e9d0",
+        "no": "195",
+        "title": "布隆过滤器误判率优化，参数设置",
+        "answer": "合理设置位数组大小、哈希函数个数，降低误判、避免穿透查询。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ee50bd08f0bf",
+        "no": "196",
+        "title": "JVM针对大数据任务GC调优，减少FullGC",
+        "answer": "增大新生代、调整GC比例、使用G1/ZGC、优化大对象、减少内存抖动。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "74ec588b3059",
+        "no": "197",
+        "title": "Scala隐式转换踩坑、代码性能优化",
+        "answer": "隐式转换滥用导致隐式嵌套、序列化异常；编码尽量显式写法、避免匿名对象频繁创建。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "ddbfeaac0047",
+        "no": "198",
+        "title": "大数据任务日志收集、异常监控告警体系",
+        "answer": "统一日志采集、日志聚合、异常关键字监控、任务失败、超时、堆积告警。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "38ed2846eeab",
+        "no": "199",
+        "title": "集群资源监控指标大盘设计（CPU/内存/IO/网络）",
+        "answer": "监控核心资源使用率、负载、磁盘IO、网络吞吐、任务队列、异常告警。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "331017b8c5bf",
+        "no": "200",
+        "title": "离线+实时双链路数据一致性保障方案",
+        "answer": "实时兜底、离线订正、数据对账、主键唯一、幂等消费、定时校验修复差异。",
+        "difficulty": "进阶",
+        "category": "Kafka/数仓/中间件进阶",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6777330634c0",
+        "no": "201",
+        "title": "手写HashMap扩容核心逻辑代码",
+        "answer": "核心逻辑：容量翻倍、阈值同步更新、链表按hash&oldCap拆分为高低两条，无需重新hash。JDK8优化了链表过长转为红黑树，扩容时拆分高低链避免rehash。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f1380a27da7f",
+        "no": "202",
+        "title": "手写生产者消费者模型（多线程）",
+        "answer": "使用Lock+Condition实现，生产者满了await，消费者空了await，生产/消费后唤醒对应线程。核心用while循环防止虚假唤醒，多条件变量区分空/满状态。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7259096ff206",
+        "no": "203",
+        "title": "给定用户登录表，统计连续登录7天用户",
+        "answer": "思路：用户分组按日期排序，date_sub(dt,rn)分组，组内计数≥7。SQL：SELECT DISTINCT user_id FROM (SELECT user_id,date_sub(dt,rn) grp,COUNT(*) cnt FROM (SELECT DISTINCT user_id,dt,ROW_NUMBER()OVER(PARTITION BY user_id ORDER BY dt) rn FROM login)t1 GROUP BY user_id,grp HAVING cnt≥7)t2;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "609a419afda3",
+        "no": "204",
+        "title": "窗口函数实现每日top3消费用户",
+        "answer": "使用DENSE_RANK窗口函数，分区按日期，排序按消费金额降序，取排名≤3的用户。SQL：SELECT dt,user_id,amount FROM (SELECT dt,user_id,SUM(amount) amount,DENSE_RANK()OVER(PARTITION BY dt ORDER BY SUM(amount) DESC) rk FROM orders GROUP BY dt,user_id)t WHERE rk≤3;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2c144d080bb0",
+        "no": "205",
+        "title": "亿级数据表去重，写出最优SQL",
+        "answer": "最优方案：ROW_NUMBER窗口函数按去重字段分区，保留第一条数据。底层配合ORC存储+分区裁剪，避免全表扫描。SQL：INSERT OVERWRITE table dest SELECT * FROM (SELECT *,ROW_NUMBER()OVER(PARTITION BY 去重字段 ORDER BY create_time DESC) rn FROM source)t WHERE rn=1;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f9719e1c2b9a",
+        "no": "206",
+        "title": "实现拉链表全量更新SQL逻辑",
+        "answer": "核心步骤：1. 旧拉链表左联增量表，匹配到的旧数据置失效；2. 新增/更新数据写入新生效记录；3. 无变更的旧数据保留。SQL用UNION ALL合并三条流，实现全量更新。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "686467746172",
+        "no": "207",
+        "title": "分桶join优化大表关联SQL",
+        "answer": "前提：两张表按join字段同分桶、同桶数。开启参数：hive.optimize.bucketmapjoin=true、hive.optimize.bucketmapjoin.sortedmerge=true。SQL直接关联，无需shuffle，直接桶内匹配。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bb1c21374e49",
+        "no": "208",
+        "title": "手写Spark RDD WordCount Scala代码",
+        "answer": "核心代码：sc.textFile('hdfs://path').flatMap(_.split(' ')).map((_,1)).reduceByKey(_+_).saveAsTextFile('output')",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "956f371d35d8",
+        "no": "209",
+        "title": "手写Spark Streaming消费Kafka代码",
+        "answer": "使用KafkaUtils.createDirectStream，配置kafkaParams、topics，处理消息，手动提交offset保障语义。核心代码：val stream = KafkaUtils.createDirectStream[String,String](ssc,PreferConsistent,Subscribe[String,String](topics,kafkaParams))",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bd7cb6770dc5",
+        "no": "210",
+        "title": "Flink实时UV去重实现（状态+水印）",
+        "answer": "1. 水印设置：WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofHours(2))处理乱序；2. 状态：KeyedState<String,Boolean>保存当日用户；3. 窗口：TumblingWindow(1天)，状态TTL设24h自动过期。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "64148c698089",
+        "no": "211",
+        "title": "实现UDF将JSON字符串解析为多列",
+        "answer": "自定义UDF入参json字符串、字段数组，返回解析后的数组；SQL侧用[]炸开为多列。UDF逻辑用Jackson解析JsonNode，循环取字段值返回。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6f7361385e08",
+        "no": "212",
+        "title": "统计每月累计销售额（累加窗口函数）",
+        "answer": "使用SUM() OVER()窗口函数，分区按年份，排序按月份，行范围为无界前导到当前行。SQL：SELECT month,amount,SUM(amount)OVER(PARTITION BY year ORDER BY month ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) total FROM sales;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "19993ac1f243",
+        "no": "213",
+        "title": "找出每个部门薪资第二高员工，允许并列",
+        "answer": "使用DENSE_RANK窗口函数，分区按部门，排序按薪资降序，取排名=2的员工。SQL：SELECT dept,name,salary FROM (SELECT dept,name,salary,DENSE_RANK()OVER(PARTITION BY dept ORDER BY salary DESC) rk FROM emp)t WHERE rk=2;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6acbd0c7a80a",
+        "no": "214",
+        "title": "多表大关联避免笛卡尔积优化SQL",
+        "answer": "优化手段：1. 先聚合子查询缩小数据量；2. 严格on关联条件，禁止where隐式关联；3. 小表广播；4. 分区裁剪；5. 分桶join。核心是先聚合再关联，避免多表直接join。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "4a3325eab6bf",
+        "no": "215",
+        "title": "手写布隆过滤器简易实现逻辑",
+        "answer": "核心逻辑：1. 多个哈希函数映射数组下标；2. 添加：所有下标置1；3. 判断：所有下标为1才可能存在，存在误判无漏判。用boolean数组+多个哈希函数实现。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "65bb8148303b",
+        "no": "216",
+        "title": "HyperLogLog估算UV误差调优代码思路",
+        "answer": "调优思路：1. 增大寄存器数量（p值）降低标准误差；2. 稀疏寄存器优化节省内存；3. 偏差修正算法；4. 基数极小切换LinearCounting；5. 预哈希打散倾斜key。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c330a2fea3c9",
+        "no": "217",
+        "title": "Java实现本地缓存淘汰LRU算法",
+        "answer": "继承LinkedHashMap，重写removeEldestEntry方法，容量超限删除最久未访问节点。核心代码：class LRUCache<K,V> extends LinkedHashMap<K,V>{int cap;public LRUCache(int cap){super(cap,0.75f,true);this.cap=cap;}@Override protected boolean removeEldestEntry(Map.Entry e){return size()>cap;}}",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "282fabeb18b2",
+        "no": "218",
+        "title": "离线数据每日全量+增量合并SQL",
+        "answer": "采用拉链表逻辑，全量旧表左联当日增量，更新变更数据，保留未变更历史。SQL用UNION ALL合并未变更旧数据、新增/更新数据。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "93cb0cafebad",
+        "no": "219",
+        "title": "实时数据流中过滤重复消息代码",
+        "answer": "Flink实现：KeyedState保存消息唯一id，TTL等于消息过期时间；来消息判断state是否存在，存在则过滤，不存在写入state，实现去重。",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0335bbe187e1",
+        "no": "220",
+        "title": "Hive动态分区批量插入数据SQL",
+        "answer": "开启参数：hive.exec.dynamic.partition=true、hive.exec.dynamic.partition.mode=nonstrict；SQL：INSERT OVERWRITE TABLE dst PARTITION(dt) SELECT id,info,dt FROM source;",
+        "difficulty": "真题",
+        "category": "Java/SQL手撕编程",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "94464c34339e",
+        "no": "221",
+        "title": "十亿条日志MapReduce任务出现严重数据倾斜，给出全套解决方案",
+        "answer": "解决方案：1. 倾斜key加盐打散，map端拆分；2. 局部聚合map combine；3. 拆分大key单独任务；4. 调大reducer数量；5. 自定义分区器打散热点；6. 两阶段聚合（先加盐聚合再还原）。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a107006f289c",
+        "no": "222",
+        "title": "Spark任务频繁FullGC，堆内存充足如何定位调优",
+        "answer": "定位：分析Executor GC日志、堆转储dump；原因：大量大对象、广播变量过大、未释放RDD缓存、shuffle中间文件引用。调优：开启offHeap、降低缓存存储等级、及时unpersist、拆分大广播、调整GC参数G1、增大shuffle缓冲区。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f50e7cb950b8",
+        "no": "223",
+        "title": "一张千亿分区大表，每日查询缓慢，如何优化分层存储",
+        "answer": "冷热分层：热数据ORC本地磁盘，温数据HDFS标准副本，冷数据归档/OSS低频存储；分区裁剪+分桶索引；冷热数据定时迁移，查询自动路由对应存储层。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0636bc9a3e1e",
+        "no": "224",
+        "title": "HBase热点RowKey导致单Region请求打满，重新设计RowKey",
+        "answer": "设计方案：加盐前缀+哈希散列+业务id三段式RowKey，均匀分散到所有Region；预分区按哈希前缀划分Region边界，避免单Region热点。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bd2816873507",
+        "no": "225",
+        "title": "YARN集群队列资源争抢，任务经常排队，资源隔离方案",
+        "answer": "隔离方案：1. 容量调度器分队列，配置队列资源占比、最大资源；2. 队列ACL权限隔离；3. 标签调度，节点绑定专属队列；4. 资源抢占，低优先级任务释放资源；5. 动态资源池。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "70f47648b7b7",
+        "no": "226",
+        "title": "Spark AQE自适应执行原理，什么场景下无法生效",
+        "answer": "原理：运行时统计shuffle数据量，自动调整reducer、倾斜join拆分、动态合并小分区。失效场景：本地模式、动态分区关闭、shuffle分区固定、流式任务、复杂算子无中间统计。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "451bab600efa",
+        "no": "227",
+        "title": "实时任务Shuffle写磁盘IO过高，如何降低磁盘压力",
+        "answer": "优化：1. 增大shuffle内存缓冲区；2. 开启shuffle压缩；3. 本地聚合减少shuffle数据量；4. 广播小表避免shuffle join；5. 开启shuffle文件合并；6. 使用高性能磁盘。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "80fc3285bddd",
+        "no": "228",
+        "title": "HDFS大量小文件导致NameNode内存溢出，整套治理方案",
+        "answer": "治理方案：源头（Flume滚动策略、Spark合并输出）、中间（定时合并小文件任务）、存储（Hive自动合并mapred输出）、优化（NN开启存档、调整块缓存、联邦NN拆分namespace）。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "edfe93d17cd3",
+        "no": "229",
+        "title": "同一批数据离线和实时统计UV不一致，数据对齐方案",
+        "answer": "对齐方案：1. 统一用户去重规则、时间戳口径；2. 实时状态TTL与离线周期对齐；3. 离线每日回补实时漏数；4. 统一HLL估算参数；5. 脏数据统一过滤规则。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8b719742b9ca",
+        "no": "230",
+        "title": "Spark广播变量过大导致Executor OOM如何拆分优化",
+        "answer": "优化：1. 拆分成多个小广播；2. 改用RDD join分桶；3. 存入HBase/Redis，算子异步查询维度；4. 广播前过滤无用数据。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c52f2efb8772",
+        "no": "231",
+        "title": "MapReduce环形缓冲区频繁溢写，参数调优思路",
+        "answer": "调优：增大io.sort.mb、调大sort.spill.percent溢写阈值；开启map端combine；增大压缩，减少溢写文件体积。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "40e96ef4cf96",
+        "no": "232",
+        "title": "Hive外部表底层文件被手动删除，元数据如何修复",
+        "answer": "修复方案：1. 手动恢复文件；2. MSCK REPAIR TABLE同步分区；3. ALTER TABLE SET LOCATION重新指定路径；4. Drop重建外部表。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a863ff3eb568",
+        "no": "233",
+        "title": "HBase读取大量扫描请求超时，缓存与预分区优化",
+        "answer": "优化：预分区分散读写；开启BlockCache、BloomFilter；Scan设置缓存批量读取；关闭不必要列；设置扫描超时参数；批量Get替代单条。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "cd3b9c76e6ea",
+        "no": "234",
+        "title": "Spark Streaming消费Kafka offset丢失，重复消费数据修复",
+        "answer": "修复：offset存入CK/Redis；重启读取保存offset；开启幂等输出；auto.offset.reset设none避免自动重置；手动管理offset。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "469df4eca1d0",
+        "no": "235",
+        "title": "集群磁盘损坏DataNode下线，数据恢复流程",
+        "answer": "恢复流程：DN故障自动副本复制；副本数不足时触发后台复制；磁盘损坏下线节点，修复磁盘后重新加入集群，平衡器均衡数据；手动hdfs balancer。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "82ad45240758",
+        "no": "236",
+        "title": "Spark3与Spark2核心性能差异，迁移改造注意点",
+        "answer": "差异：AQE默认开启、动态分区、自适应执行、shuffle优化、DPP动态分区裁剪。迁移注意点：调整参数适配AQE、废弃API替换、ORC/Parquet读取参数、资源调度参数重调。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c7b95f8b0010",
+        "no": "237",
+        "title": "分桶表、分区表同时存在时查询优化优先级",
+        "answer": "优化优先级：先分区裁剪（过滤分区减少文件读取），再分桶优化join/聚合；查询条件优先带上分区字段。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "2a4d76385727",
+        "no": "238",
+        "title": "Hive任务执行时间忽快忽慢，资源抢占排查",
+        "answer": "排查点：YARN队列资源抢占、节点磁盘IO不均、数据倾斜、小文件波动、集群负载、定时任务资源争抢。优化：隔离队列、错峰调度、合并小文件。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b30ec43ce45b",
+        "no": "239",
+        "title": "HDFS三副本存储成本过高，冷热数据分层存储方案",
+        "answer": "方案：冷数据EC纠删码存储替代副本；热数据3副本、温数据2副本、归档数据EC；定时冷热迁移策略。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a05ffea6eef3",
+        "no": "240",
+        "title": "亿级大表join两个千万级小表，三种优化手段对比",
+        "answer": "1. 广播join：小表全量分发，无shuffle，受小表内存限制；2. 分桶join：同分桶无shuffle，建表成本高；3. AQE倾斜优化：自动拆分热点，通用，轻微运行时开销。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3dcfede4f9a8",
+        "no": "241",
+        "title": "Spark任务本地磁盘爆满，shuffle文件清理机制优化",
+        "answer": "优化：配置spark.local.dir多磁盘；开启shuffle文件自动清理；调整spark.cleaner周期；任务结束手动删除临时文件；限制shuffle分区数量。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "da7b15ea7303",
+        "no": "242",
+        "title": "NameNode启动慢，fsimage加载耗时优化",
+        "answer": "优化：开启NN HA、定期合并fsimage+editlog；增大editlog滚动阈值；使用离线合并工具；拆分联邦NN分担元数据。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "7c095846dbe2",
+        "no": "243",
+        "title": "HBase写入吞吐量低，批量写入、预分区、缓存调优",
+        "answer": "优化：批量Put、异步BufferedMutator；预分区打散rowkey；增大WriteBuffer；开启MemStore刷写阈值调整；关闭WAL临时提升吞吐。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f25f8514db84",
+        "no": "244",
+        "title": "集群任务大量失败，日志无报错，资源调度排查",
+        "answer": "排查点：YARN资源超限、磁盘满、网络超时、权限缺失、容器镜像损坏、节点硬件故障、资源抢占被杀。查看NM容器日志、节点磁盘状态。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f17549a5fec9",
+        "no": "245",
+        "title": "列式存储ORC、Parquet性能差异，业务选型标准",
+        "answer": "差异：ORC：Hive生态友好，索引完善，适合离线数仓；Parquet：Spark/Flink兼容更好，嵌套结构优化，实时湖仓首选。选型：纯Hive离线选ORC；Flink/Spark实时湖仓选Parquet。",
+        "difficulty": "真题",
+        "category": "Hadoop/Spark",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e1529ae1b05a",
+        "no": "246",
+        "title": "实时订单数据流出现大量乱序数据，延迟2小时，水印如何设置",
+        "answer": "水印设置：WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofHours(2))；允许2小时延迟，侧输出流捕获迟到数据。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d9f87c507133",
+        "no": "247",
+        "title": "Flink任务Checkpoint频繁失败，IO耗时过长优化",
+        "answer": "优化：1. 增量CK；2. RocksDB状态后端；3. CK间隔拉长、并行CK；4. 远端存储高性能HDFS/S3；5. 关闭同步刷写；6. 压缩状态。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "64dca27c2281",
+        "no": "248",
+        "title": "实时UV统计每日上亿用户，状态持续膨胀OOM解决方案",
+        "answer": "方案：1. 状态TTL 24h自动过期；2. 拆分key分流多算子；3. HLL估算UV替代存储全部userid；4. RocksDB磁盘状态替代内存；5. 窗口过期清理状态。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "48444687e902",
+        "no": "249",
+        "title": "Flink消费Kafka分区扩容后数据重复消费修复",
+        "answer": "修复：扩容后重启任务，读取最新CK offset；开启幂等输出；使用FlinkKafkaConsumer自动均衡分区分配。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f0940ac745dc",
+        "no": "250",
+        "title": "实时数仓DWD层数据更新，Hudi MergeOnRead落地方案",
+        "answer": "方案：流式写入Hudi MOR表，增量更新；读时合并基础文件+增量日志；支持CDC变更，兼顾写入性能与查询一致性。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5c8059382718",
+        "no": "251",
+        "title": "Flink任务反压持续升高，分层定位瓶颈（Kafka/算子/下游存储）",
+        "answer": "定位：上游Kafka：消息堆积；算子内部：逻辑慢、热点key；下游存储：MySQL/HBase写入瓶颈；监控inPool/outPool缓冲队列。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "fd62500ce2a9",
+        "no": "252",
+        "title": "Exactly-Once要求下，Flink写入MySQL不重复不丢失实现",
+        "answer": "实现：1. 两阶段提交（Flink XA事务）；2. 幂等写入（唯一主键upsert）；3. CK完成后提交事务；4. 批量写入减少事务开销。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "aa28da978672",
+        "no": "253",
+        "title": "多流join实时订单与用户维度，维度缓慢更新如何处理",
+        "answer": "处理方案：1. 维表异步IO查询Redis；2. Hudi实时维表广播流；3. 定时全量广播刷新维度；4. 维表缓存本地TTL。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9e9955026963",
+        "no": "254",
+        "title": "Flink CDC同步MySQL整库，分库分表合并实时流",
+        "answer": "实现：多个CDC消费流union all；统一主键规则；keyby分片主键合并，写入宽表。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a6562cb021d5",
+        "no": "255",
+        "title": "窗口触发延迟数据过多，侧输出流落地延迟表方案",
+        "answer": "方案：window.sideOutputLateData(lateTag)，延迟数据分流写入独立延迟表，离线统一补数修正指标。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5d1af8a6b57e",
+        "no": "256",
+        "title": "Flink集群JobManager单点故障，高可用改造步骤",
+        "answer": "改造：配置Zookeeper存储JobGraph、Checkpoint元数据；多JM实例，故障自动切换；开启JM故障恢复。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c65b220eabc9",
+        "no": "257",
+        "title": "实时指标凌晨峰值延迟严重，并行度动态扩容方案",
+        "answer": "方案：Flink on YARN动态并行度；配置自动扩缩容策略；峰值时段自动增加TaskManager资源，低谷释放。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6858cf77e091",
+        "no": "258",
+        "title": "RocksDB状态压缩、增量Checkpoint调优降低磁盘占用",
+        "answer": "调优：开启LZ4/ZSTD压缩；增量Checkpoint；分层压缩；调整memtable大小；后台合并压缩。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1f65c1dae1b0",
+        "no": "259",
+        "title": "实时数据流中热点Key导致算子单线程卡死拆分方案",
+        "answer": "方案：加盐打散key，两阶段聚合；拆分热点key到独立算子；本地预聚合减少热点输出数据。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "62593315c8be",
+        "no": "260",
+        "title": "Flink SQL写Hudi增量更新，避免写放大参数配置",
+        "answer": "配置：调整小文件合并策略；设置批量写入；控制日志文件大小；定时异步合并parquet基础文件。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "73aa244faed3",
+        "no": "261",
+        "title": "上游Kafka消息积压百万条，实时任务紧急扩容流程",
+        "answer": "流程：临时增加消费者并行度匹配topic分区；扩容broker；清理无效消息；上游限流；分流冷热topic；临时离线补数。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "22f0913a594d",
+        "no": "262",
+        "title": "两个实时流关联，流速度差异大导致状态爆炸解决方案",
+        "answer": "方案：设置状态TTL；拆分大窗口；侧输出过期数据；双流按时间范围裁剪；大流速流本地预聚合。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "112887274822",
+        "no": "263",
+        "title": "Flink异步IO查询Redis维度，同步阻塞性能优化",
+        "answer": "优化：使用AsyncI/O异步算子，避免同步阻塞；设置并发请求数、超时时间；本地缓存热点维度减少Redis请求。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8389cb62c3b6",
+        "no": "264",
+        "title": "实时任务重启后指标数据重复，幂等性设计方案",
+        "answer": "方案：输出端唯一主键upsert；CK对齐提交；消息唯一id去重状态；下游存储幂等写入。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "a30404279acb",
+        "no": "265",
+        "title": "事件时间与处理时间统计结果不一致，排查数据时间戳问题",
+        "answer": "排查点：数据源时间戳错误、水印设置过小、乱序数据未处理、窗口触发策略差异、数据延迟丢失；统一事件时间作为统计基准。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e205e9331180",
+        "no": "266",
+        "title": "Flink算子链拆分后吞吐量下降，平衡延迟与资源",
+        "answer": "平衡：算子链拆分降低延迟，但线程切换开销提升；热点算子单独拆链，普通算子合并链；调整并行度抵消性能损耗。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e67e77317cf1",
+        "no": "267",
+        "title": "实时日志脏数据（空值、异常格式）统一清洗方案",
+        "answer": "方案：Flink侧输出流捕获空值、格式异常；统一清洗UDF过滤；脏数据写入单独监控表，配置告警。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c5c596a62140",
+        "no": "268",
+        "title": "Hudi与Flink整合增量同步，数据一致性保障",
+        "answer": "保障：CK与Hudi提交绑定；MOR表事务写入；主键唯一去重；增量日志落地，支持故障回滚。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "006e67700274",
+        "no": "269",
+        "title": "实时宽表每日上亿更新，合并写入性能调优",
+        "answer": "调优：批量upsert；RocksDB状态缓存；分桶打散写入；Hudi小文件合并；异步写入存储。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "d6dab45a7aab",
+        "no": "270",
+        "title": "跨机房实时链路延迟高，网络与分区优化方案",
+        "answer": "优化：就近消费同机房Kafka；分区按机房打散；专线带宽扩容；压缩传输数据；减少跨机房shuffle。",
+        "difficulty": "真题",
+        "category": "Flink实时业务",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "39b05837ba77",
+        "no": "271",
+        "title": "Kafka集群消息积压1000万条，紧急处理+长期根治方案",
+        "answer": "紧急处理：扩容消费者、增加分区、临时离线消费；长期根治：上游限流、业务拆分冷热topic、优化消费逻辑、异步消费、预聚合。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3e7145e6c120",
+        "no": "272",
+        "title": "Kafka消费者频繁rebalance导致实时任务重复消费如何解决",
+        "answer": "解决：调大session.timeout、稳定消费者实例、静态分配分区、关闭自动rebalance、优化心跳间隔。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1ed85bf3faea",
+        "no": "273",
+        "title": "消息丢失：生产者、Broker、消费者三层分别排查修复",
+        "answer": "生产者：acks=1丢失，设acks=all；Broker：副本数1宕机丢消息，设3副本；消费者：自动offset提交早于业务处理，手动CK后提交offset。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8c729127e018",
+        "no": "274",
+        "title": "实时数仓分层设计（ODS/DWD/DWS/ADS）结合电商业务完整链路",
+        "answer": "链路：ODS：原始Kafka日志；DWD：清洗、脱敏、去重明细；DWM：轻度聚合中间层；DWS：按维度汇总宽表；ADS：业务指标大屏。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0b430a699ac3",
+        "no": "275",
+        "title": "缓慢变化维SCD2实时更新，Flink+Hudi实现方案",
+        "answer": "实现：CDC同步维表；Hudi增量更新；记录start/end生效时间；历史版本保留，实现拉链维度。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "f7c55a405b9a",
+        "no": "276",
+        "title": "日数据10TB离线数仓分层优化，冷热数据分离存储",
+        "answer": "方案：热层：当日近7天ORC高速存储；温层30天标准HDFS；冷层归档EC纠删码；自动迁移脚本，查询路由分层读取。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "e0a2ce115e22",
+        "no": "277",
+        "title": "大数据任务调度平台Azkaban任务依赖失败告警设计",
+        "answer": "设计：配置任务失败邮件/钉钉告警；依赖任务失败阻断下游；任务超时告警；失败自动重试机制。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "596b6a50bd38",
+        "no": "278",
+        "title": "十亿用户画像大宽表设计，维度拆分与合并策略",
+        "answer": "策略：拆分基础属性、行为标签、统计指标多张分桶表；大宽表分天增量合并；按需关联维度，避免单表字段爆炸。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c066458f16bf",
+        "no": "279",
+        "title": "数据质量监控体系完整搭建（校验规则、告警、自动修复）",
+        "answer": "搭建：校验规则：空值、范围、主键唯一、波动阈值；监控框架定时校验；异常自动告警；脏数据分流、自动重跑补数。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6e32fa3285ce",
+        "no": "280",
+        "title": "湖仓一体架构Hudi+Hive+Flink落地业务流程",
+        "answer": "流程：Flink实时写入Hudi增量；Hive定时同步元数据；离线Spark查询Hudi全量；统一数据存储，实时离线同源。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "3c743c85f67f",
+        "no": "281",
+        "title": "ClickHouse实时指标查询超时，分区索引调优方案",
+        "answer": "调优：按日分区；主键索引、二级索引；分区裁剪；分批查询；冷热数据分离；分布式分片打散数据。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "cf3904305a73",
+        "no": "282",
+        "title": "大数据集群监控大盘核心指标，异常告警阈值设计",
+        "answer": "核心指标：HDFS：磁盘使用率、副本丢失、小文件；YARN：队列资源、任务失败率；Spark/Flink：GC、反压、延迟；Kafka：堆积、rebalance；告警阈值设80%资源水位。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "472c427112f6",
+        "no": "283",
+        "title": "电商实时大屏指标延迟5分钟全链路排查流程",
+        "answer": "排查流程：Kafka堆积→Flink算子反压→Redis/MySQL写入瓶颈→水印延迟→状态膨胀；逐段监控队列、处理耗时定位瓶颈。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "08628329761b",
+        "no": "284",
+        "title": "项目中遇到最大数据倾斜问题，完整处理过程（STAR回答）",
+        "answer": "S场景：日亿订单join用户维度，热点商家key单task卡顿；T任务：实时DWS层指标计算；A行动：加盐两阶段聚合、拆分热点key独立任务、AQE自动拆分、广播小维表；R结果：单task耗时从20min降至1min，无延迟。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "216fa1155037",
+        "no": "285",
+        "title": "实时与离线双链路数据对账不一致，数据校验方案",
+        "answer": "方案：统一时间戳、去重逻辑、指标口径；离线每日回补实时丢失数据；HLL参数统一；脏数据过滤规则对齐；定时对账脚本输出差异报表。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1212f977a16c",
+        "no": "286",
+        "title": "分Kafka Topic拆分冷热数据，避免单Topic超大分区",
+        "answer": "方案：热数据：实时大屏，高分区低延迟；冷数据：离线统计，低分区，压缩存储；避免单topic超大分区堆积。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c3accaf79005",
+        "no": "287",
+        "title": "Kafka集群磁盘空间占满，消息清理与扩容步骤",
+        "answer": "步骤：临时缩短消息保留时间清理过期消息；扩容broker磁盘；冷热topic拆分；设置消息过期自动删除。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b600a3e2b216",
+        "no": "288",
+        "title": "HyperLogLog估算UV误差过大，优化采样与参数",
+        "answer": "优化：提升寄存器p值；原始数据预打散；极小基数切换LinearCounting；消除热点key倾斜。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "9e7cb276e132",
+        "no": "289",
+        "title": "Redis缓存实时热点指标，缓存击穿、雪崩防范方案",
+        "answer": "防范：击穿：互斥锁、永不过期热点key；雪崩：过期时间随机打散、集群分片、多级缓存。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "5d2cd0dc689a",
+        "no": "290",
+        "title": "MySQL分库分表数据同步至实时数仓，避免数据重复",
+        "answer": "方案：CDC记录binlog唯一事务id；实时流keyby事务id去重；Hudi主键upsert自动覆盖重复数据。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c3f072316457",
+        "no": "291",
+        "title": "大数据集群成本优化：存储、计算资源降本方案",
+        "answer": "方案：存储：冷热分层EC纠删码；计算：错峰调度、弹性资源、闲置节点释放；压缩数据、合并小文件减少资源消耗。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "6a4bcf1987c8",
+        "no": "292",
+        "title": "日志采集Flume链路丢包、重复采集修复优化",
+        "answer": "修复：Channel持久化存储；事务提交；批量采集大小调优；拦截器过滤脏数据；offset持久化，避免重复采集。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "1a64e12c19e2",
+        "no": "293",
+        "title": "亿级订单数据日活UV、PV实时统计最优架构",
+        "answer": "架构：采集Flume→Kafka ODS；Flink实时清洗DWD；HLL预聚合DWS；ClickHouse/Redis大屏查询；离线Hive日度校正UV。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "c08d3eddc53b",
+        "no": "294",
+        "title": "数据回补方案：实时任务中断，离线补数流程",
+        "answer": "流程：离线读取对应时间段Kafka原始数据；执行与实时一致清洗逻辑；覆盖缺失时段指标；对账校验数据一致性。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "bfd7bd05d9fe",
+        "no": "295",
+        "title": "大数据项目中JVM GC频繁卡顿，全套调优参数",
+        "answer": "调优：G1收集器；增大堆内存；调整新生代比例；开启堆外内存；降低对象创建频率；及时释放缓存大对象；优化shuffle缓冲区。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "0d47e4d00456",
+        "no": "296",
+        "title": "分布式任务幂等性通用设计方案（离线+实时）",
+        "answer": "方案：离线：分区+唯一主键覆盖写入；实时：消息唯一ID状态去重、存储upsert主键、CK事务绑定输出。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "8dd9c7044447",
+        "no": "297",
+        "title": "数据安全：敏感用户数据脱敏存储与查询方案",
+        "answer": "方案：存储：MD5哈希、脱敏字段单独列；查询：动态脱敏UDF，权限区分明文/密文；数据传输加密。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "4673043585da",
+        "no": "298",
+        "title": "高并发实时写入HBase，批量、异步写入优化",
+        "answer": "优化：批量BufferedMutator；预分区；调整memstore刷写；异步写入；关闭WAL临时提速；拆分rowkey热点。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "b7adce196169",
+        "no": "299",
+        "title": "多版本Spark/Flink集群共存资源调度隔离方案",
+        "answer": "方案：YARN分队列，资源配额隔离；集群标签绑定任务；独立ResourceManager；业务集群物理隔离。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      },
+      {
+        "id": "309c0c8f5222",
+        "no": "300",
+        "title": "大数据项目架构从离线升级实时完整改造方案",
+        "answer": "方案：1. 数据源接入Kafka实时ODS；2. 搭建Flink实时DWD/DWS；3. Hudi湖仓统一存储；4. 实时离线双链路并行验证；5. 逐步切换大屏指标至实时；6. 下线低效离线定时任务。",
+        "difficulty": "真题",
+        "category": "Kafka/数仓/项目场景",
+        "position": "大数据开发工程师"
+      }
+    ]
+  }
+]

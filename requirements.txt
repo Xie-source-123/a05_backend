@@ -1,0 +1,6 @@
+# 后端运行依赖（由 `pip freeze` 中的直接依赖整理，版本与本机验证过的一致）
+fastapi==0.141.1
+uvicorn==0.52.4
+python-dotenv==1.2.3
+requests==2.34.2
+websockets==17.1

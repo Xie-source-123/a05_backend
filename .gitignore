@@ -1,14 +1,18 @@
 # ============================================================
 # 密钥与运行时数据 —— 绝不能提交
 # ============================================================
-# .env 里存着 DIFY_API_KEY / DIFY_WORKFLOW_KEY / TTS_API_KEY 等真实密钥，
+# .env 里存着 DIFY_API_KEY / DASHSCOPE_API_KEY / TTS_API_KEY 等真实密钥，
 # 一旦提交进 git，历史里就永久留痕，只能靠轮换密钥来补救。
 .env
 .env.*
 !.env.example
 
-# 用户账号数据（明文密码）
+# ---- 用户数据（不含在仓库里，各人本机独立） ----
 users.json
+users.json.bak-*
+resumes.json
+practice_records.json
+interview_records.json
 
 # ============================================================
 # Python 虚拟环境与缓存
@@ -26,3 +30,10 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# pip 临时目录
+.pip-tmp/
+
+# 语音合成的试听样本（临时产物）
+_qwen_*.mp3
+_tts_*
