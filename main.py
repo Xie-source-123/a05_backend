@@ -1863,8 +1863,44 @@ def _col_index(letters: str) -> int:
     return n - 1
 
 
-def read_xlsx_rows(raw: bytes):
-    """返回 [[字符串, ...], ...]，按列顺序对齐，空单元格为 ''。"""
+def _xlsx_parse_sheet(z, shared, sheet_path):
+    """解析单个工作表，返回 [[字符串, ...], ...]。"""
+    from xml.etree import ElementTree as ET
+
+    root = ET.fromstring(z.read(sheet_path))
+    rows = []
+    for row in root.iter(f"{XLSX_NS}row"):
+        cells = {}
+        for c in row.findall(f"{XLSX_NS}c"):
+            ref = c.get("r") or ""
+            letters = "".join(ch for ch in ref if ch.isalpha())
+            if not letters:
+                continue
+            idx = _col_index(letters)
+            t = c.get("t")
+            v = c.find(f"{XLSX_NS}v")
+            if t == "s" and v is not None and v.text is not None:
+                i = int(v.text)
+                val = shared[i] if 0 <= i < len(shared) else ""
+            elif t == "inlineStr":
+                node = c.find(f"{XLSX_NS}is")
+                val = "".join(x.text or "" for x in node.iter(f"{XLSX_NS}t")) if node is not None else ""
+            else:
+                val = v.text if v is not None and v.text is not None else ""
+            cells[idx] = str(val).strip()
+        if not cells:
+            continue
+        width = max(cells) + 1
+        rows.append([cells.get(i, "") for i in range(width)])
+    return rows
+
+
+def read_xlsx_sheets(raw: bytes):
+    """返回 [(工作表名, 行列表), ...]，按工作表顺序排列。
+
+    客观题的 Excel 通常把「单选题 / 多选题 / 判断题」分成不同工作表存放，
+    只读第一个工作表会把后两种题型整段丢掉 —— 这正是「上传后看不到选项」的原因。
+    """
     import io as _io
     import zipfile
     from xml.etree import ElementTree as ET
@@ -1877,47 +1913,92 @@ def read_xlsx_rows(raw: bytes):
             for si in root.findall(f"{XLSX_NS}si"):
                 shared.append("".join(t.text or "" for t in si.iter(f"{XLSX_NS}t")))
 
-        sheet = next((n for n in names if n.startswith("xl/worksheets/sheet") and n.endswith(".xml")), None)
-        if not sheet:
-            return []
-        root = ET.fromstring(z.read(sheet))
+        # 工作表显示名（用于前缀「多选题」之类的判断）
+        title_by_index = {}
+        try:
+            wb = ET.fromstring(z.read("xl/workbook.xml"))
+            for i, sh in enumerate(wb.iter(f"{XLSX_NS}sheet"), start=1):
+                title_by_index[i] = sh.get("name") or f"Sheet{i}"
+        except Exception:
+            pass
 
-        rows = []
-        for row in root.iter(f"{XLSX_NS}row"):
-            cells = {}
-            for c in row.findall(f"{XLSX_NS}c"):
-                ref = c.get("r") or ""
-                letters = "".join(ch for ch in ref if ch.isalpha())
-                if not letters:
-                    continue
-                idx = _col_index(letters)
-                t = c.get("t")
-                v = c.find(f"{XLSX_NS}v")
-                if t == "s" and v is not None and v.text is not None:
-                    i = int(v.text)
-                    val = shared[i] if 0 <= i < len(shared) else ""
-                elif t == "inlineStr":
-                    node = c.find(f"{XLSX_NS}is")
-                    val = "".join(x.text or "" for x in node.iter(f"{XLSX_NS}t")) if node is not None else ""
-                else:
-                    val = v.text if v is not None and v.text is not None else ""
-                cells[idx] = str(val).strip()
-            if not cells:
+        found = []
+        for n in names:
+            if not (n.startswith("xl/worksheets/sheet") and n.endswith(".xml")):
                 continue
-            width = max(cells) + 1
-            rows.append([cells.get(i, "") for i in range(width)])
-        return rows
+            m = re.search(r"sheet(\d+)\.xml$", n)
+            order = int(m.group(1)) if m else 9999
+            try:
+                rows = _xlsx_parse_sheet(z, shared, n)
+            except Exception:
+                continue
+            if rows:
+                found.append((order, title_by_index.get(order, f"Sheet{order}"), rows))
+
+        found.sort(key=lambda x: x[0])
+        return [(name, rows) for _, name, rows in found]
+
+
+def read_xlsx_rows(raw: bytes):
+    """返回第一个工作表的行（保留旧调用方）。"""
+    sheets = read_xlsx_sheets(raw)
+    return sheets[0][1] if sheets else []
 
 
 # 表头识别：按中文列名找下标，找不到就退回固定顺序（Excel 缺表头时也能导）
 COLUMN_ALIASES = {
     "no": ["题号", "序号", "编号", "no", "id"],
+    "type": ["题型", "题目类型", "类型", "type"],
     "title": ["题目", "题干", "问题", "question", "title"],
+    "optA": ["选项a", "选项1", "a"],
+    "optB": ["选项b", "选项2", "b"],
+    "optC": ["选项c", "选项3", "c"],
+    "optD": ["选项d", "选项4", "d"],
+    "correct": ["正确答案", "正确选项", "correct"],
+    "explain": ["解析", "答案解析", "解释", "explain"],
     "answer": ["参考答案", "答案", "answer"],
     "difficulty": ["难度", "difficulty", "level"],
     "category": ["知识点分类", "知识点", "分类", "category", "knowledge"],
     "position": ["岗位", "适用岗位", "position", "job"],
 }
+
+
+def _normalize_correct(qtype, correct, options):
+    """把「正确答案」统一成选项字母（多选题按字母升序拼接）。
+
+    判断题的答案列常写成「正确 / 错误」，要按选项文本反查成 A / B，
+    否则前端拿正确答案和用户选择没法直接比对。
+    """
+    c = (correct or "").strip()
+    if not options:
+        return c
+
+    if "判断" in (qtype or ""):
+        for o in options:
+            text = (o.get("text") or "").strip()
+            if c and (c == text or c in text or text in c):
+                return o["key"]
+
+    letters = re.findall(r"[A-Za-z]", c.upper())
+    if letters:
+        return "".join(sorted(set(letters)))
+
+    # 答案写成选项原文时反查
+    for o in options:
+        if c and c == (o.get("text") or "").strip():
+            return o["key"]
+    return c
+
+
+def _guess_type(raw_type, options, correct):
+    """用户没填「题型」时按内容推断，避免所有题都被当成问答题。"""
+    t = (raw_type or "").strip()
+    if t:
+        return t
+    if options:
+        letters = re.findall(r"[A-Za-z]", (correct or "").upper())
+        return "多选题" if len(set(letters)) > 1 else "单选题"
+    return "问答题"
 
 
 def _map_columns(header):
@@ -1951,45 +2032,70 @@ def admin_upload_bank(req: BankUploadReq, _admin: str = Depends(require_admin)):
         raise HTTPException(status_code=400, detail="文件是空的")
 
     try:
-        rows = read_xlsx_rows(raw)
+        sheets = read_xlsx_sheets(raw)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"不是有效的 Excel 文件：{e}")
-    if len(rows) < 2:
-        raise HTTPException(status_code=400, detail="表格里没有数据行（第一行应为表头）")
+    if not sheets:
+        raise HTTPException(status_code=400, detail="表格里没有可解析的工作表")
 
-    header, body = rows[0], rows[1:]
-    idx = _map_columns(header)
-    # 至少要有「题目」这一列，否则导进来也是空的
-    if "title" not in idx:
-        raise HTTPException(
-            status_code=400,
-            detail=f"找不到「题目」列。实际表头：{('、'.join(header) or '空')}",
-        )
-
-    def cell(row, key, default=""):
+    def cell(row, idx, key, default=""):
         i = idx.get(key)
         if i is None or i >= len(row):
             return default
         return (row[i] or "").strip()
 
     questions = []
-    for n, row in enumerate(body, start=1):
-        title = cell(row, "title")
-        if not title:
+    used_sheets = []
+    skipped_sheets = []
+    # 逐个工作表解析：单选 / 多选 / 判断 常被分在不同表里，只读第一张会丢题型
+    for sheet_name, rows in sheets:
+        if len(rows) < 2:
+            skipped_sheets.append(sheet_name)
             continue
-        questions.append(
-            {
-                "id": uuid.uuid4().hex[:12],
-                "no": cell(row, "no") or str(n),
-                "title": title,
-                "answer": cell(row, "answer"),
-                "difficulty": cell(row, "difficulty") or "基础",
-                "category": cell(row, "category"),
-                "position": cell(row, "position"),
-            }
-        )
+        header, body = rows[0], rows[1:]
+        idx = _map_columns(header)
+        if "title" not in idx:
+            skipped_sheets.append(sheet_name)
+            continue
+        used_sheets.append(sheet_name)
+
+        for n, row in enumerate(body, start=1):
+            title = cell(row, idx, "title")
+            if not title:
+                continue
+
+            options = []
+            for key, label in (("optA", "A"), ("optB", "B"), ("optC", "C"), ("optD", "D")):
+                text = cell(row, idx, key)
+                if text:
+                    options.append({"key": label, "text": text})
+
+            raw_type = cell(row, idx, "type")
+            correct = cell(row, idx, "correct")
+            explain = cell(row, idx, "explain")
+            qtype = _guess_type(raw_type, options, correct)
+
+            questions.append(
+                {
+                    "id": uuid.uuid4().hex[:12],
+                    "no": cell(row, idx, "no") or str(n),
+                    "type": qtype,
+                    "title": title,
+                    "options": options,
+                    "correct": _normalize_correct(qtype, correct, options),
+                    "explain": explain,
+                    "answer": cell(row, idx, "answer"),
+                    "difficulty": cell(row, idx, "difficulty") or "基础",
+                    "category": cell(row, idx, "category"),
+                    "position": cell(row, idx, "position"),
+                }
+            )
+
     if not questions:
-        raise HTTPException(status_code=400, detail="表格里没有解析出任何题目")
+        raise HTTPException(
+            status_code=400,
+            detail=f"没有解析出任何题目。检查过的表：{'、'.join(used_sheets + skipped_sheets) or '空'}",
+        )
 
     name = (req.name or "").strip() or (req.filename or "未命名题库").rsplit(".", 1)[0]
     banks = load_banks()
