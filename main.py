@@ -2923,8 +2923,14 @@ def delete_exam_record(exam_id: str, username: str = ""):
 
 
 @app.delete("/api/practice/records")
-def clear_practice_records(username: str = "", bank: str = "", category: str = ""):
-    """清空某个卡片的练习记录（bank + category 定位一张卡）；都不传则清空全部。"""
+def clear_practice_records(
+    username: str = "", bank: str = "", category: str = "", at: str = ""
+):
+    """清空练习记录，支持三种粒度：
+    - 只传 at → 清掉「那一次提交」的全部作答（一键清空上次记录用这个）
+    - 传 bank + category → 清空整张卡的历史
+    - 都不传 → 清空该账号全部练习记录
+    """
     who = (username or "").strip()
     if not who:
         raise HTTPException(status_code=400, detail="缺少用户名")
@@ -2937,6 +2943,7 @@ def clear_practice_records(username: str = "", bank: str = "", category: str = "
         if not (
             (not bank or (x.get("bank") or "") == bank)
             and (not category or (x.get("category") or "") == category)
+            and (not at or (x.get("at") or "") == at)
         )
     ]
     removed = len(items) - len(left)
