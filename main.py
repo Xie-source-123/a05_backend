@@ -2219,6 +2219,158 @@ def list_bank_questions(bank_id: str, _admin: str = Depends(require_admin)):
 
 
 
+# ============================================================
+# [新增] 上传两步走：先解析出预览，人工确认后再入库
+# ============================================================
+class BankParseReq(BaseModel):
+    filename: str = ""
+    data_base64: str
+
+
+class BankCommitReq(BaseModel):
+    name: str = ""
+    source: str = ""
+    questions: list
+
+
+def _questions_from_sheets(raw):
+    """把 Excel 的所有工作表解析成题目列表（不落库）。
+
+    列名靠 COLUMN_ALIASES 自适应识别，不依赖固定顺序；
+    识别不到的字段留空，由 _question_missing() 标出「待补充」。
+    """
+    sheets = read_xlsx_sheets(raw)
+    questions = []
+    used, skipped = [], []
+
+    for sheet_name, rows in sheets:
+        if len(rows) < 2:
+            skipped.append(sheet_name)
+            continue
+        header, body = rows[0], rows[1:]
+        idx = _map_columns(header)
+        if "title" not in idx:
+            skipped.append(sheet_name)
+            continue
+        used.append(sheet_name)
+
+        def cell(row, key, default=""):
+            i = idx.get(key)
+            if i is None or i >= len(row):
+                return default
+            return (row[i] or "").strip()
+
+        for n, row in enumerate(body, start=1):
+            title = cell(row, "title")
+            if not title:
+                continue
+            options = []
+            for key, label in (("optA", "A"), ("optB", "B"), ("optC", "C"), ("optD", "D")):
+                text = cell(row, key)
+                if text:
+                    options.append({"key": label, "text": text})
+            questions.append(
+                _make_question(
+                    {
+                        "no": cell(row, "no") or str(n),
+                        "type": cell(row, "type"),
+                        "title": title,
+                        "options": options,
+                        "correct": cell(row, "correct"),
+                        "explain": cell(row, "explain"),
+                        "answer": cell(row, "answer"),
+                        "difficulty": cell(row, "difficulty"),
+                        "category": cell(row, "category"),
+                        "position": cell(row, "position"),
+                    },
+                    fallback_no=str(n),
+                )
+            )
+
+    return questions, used, skipped
+
+
+@app.post("/api/admin/banks/parse")
+def admin_parse_bank(req: BankParseReq, _admin: str = Depends(require_admin)):
+    """只解析、不入库 —— 前端拿结果做可编辑预览，人工确认后再调 commit。"""
+    import base64
+
+    try:
+        raw = base64.b64decode(req.data_base64 or "", validate=False)
+    except Exception:
+        raise HTTPException(status_code=400, detail="文件内容解析失败")
+    if not raw:
+        raise HTTPException(status_code=400, detail="文件是空的")
+    try:
+        questions, used, skipped = _questions_from_sheets(raw)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"不是有效的 Excel 文件：{e}")
+    if not questions:
+        raise HTTPException(
+            status_code=400,
+            detail="没有解析出任何题目。请确认表里有一列叫「题目」（或「题干 / 问题」）",
+        )
+
+    lacking = sum(1 for q in questions if q.get("missing"))
+    return {
+        "questions": questions,
+        "sheets": used,
+        "skipped": skipped,
+        "total": len(questions),
+        "lacking": lacking,
+        "suggestName": (req.filename or "").rsplit(".", 1)[0] or "未命名题库",
+    }
+
+
+@app.post("/api/admin/banks/commit")
+def admin_commit_bank(req: BankCommitReq, _admin: str = Depends(require_admin)):
+    """把预览里（可能已手工修正过）的题目正式入库。"""
+    clean = []
+    for i, q in enumerate(req.questions or [], start=1):
+        if not isinstance(q, dict):
+            continue
+        if not str(q.get("title") or "").strip():
+            continue
+        clean.append(_make_question(q, fallback_no=str(i)))
+    if not clean:
+        raise HTTPException(status_code=400, detail="没有可导入的题目")
+
+    name = (req.name or "").strip() or "未命名题库"
+    banks = load_banks()
+    bank = {
+        "id": f"bank-{uuid.uuid4().hex[:10]}",
+        "name": name,
+        "source": (req.source or "").strip(),
+        "created_at": str(datetime.now()),
+        "questions": clean,
+    }
+    banks.insert(0, bank)
+    save_banks(banks)
+
+    lacking = sum(1 for q in clean if q.get("missing"))
+    logger.info(f"[Bank] 确认导入「{name}」：{len(clean)} 道题，待补充 {lacking} 道")
+    return {
+        "message": f"已导入 {len(clean)} 道题" + (f"，其中 {lacking} 道待补充" if lacking else ""),
+        "bank": {**bank, "questions": []},
+        "total": len(clean),
+        "lacking": lacking,
+    }
+
+
+@app.get("/api/admin/questions")
+def admin_all_questions(_admin: str = Depends(require_admin)):
+    """跨题库的题目总表 —— 管理页用「岗位 + 知识点 + 难度 + 题型 + 关键词」定位。"""
+    out = []
+    for b in load_banks():
+        for q in b.get("questions") or []:
+            item = dict(q)
+            item["bankId"] = b.get("id")
+            item["bank"] = b.get("name")
+            item["missing"] = _question_missing(item)
+            out.append(item)
+    return {"questions": out, "total": len(out)}
+
+
 def build_question_vocabulary():
     """把题库里的术语汇成 ASR 热词。
 
@@ -2246,10 +2398,77 @@ def admin_list_questions(_admin: str = Depends(require_admin)):
 class QuestionReq(BaseModel):
     no: str = ""
     title: str
+    type: str = "问答题"
+    options: list = []
+    correct: str = ""
+    explain: str = ""
     answer: str = ""
     difficulty: str = "基础"
     category: str = ""
     position: str = ""
+
+
+def _norm_options(raw):
+    """选项归一化：只保留 {key, text} 且都有值的项，按字母排序。"""
+    out = []
+    for o in raw or []:
+        if not isinstance(o, dict):
+            continue
+        k = str(o.get("key") or "").strip().upper()[:1]
+        t = str(o.get("text") or "").strip()
+        if k and t:
+            out.append({"key": k, "text": t})
+    out.sort(key=lambda x: x["key"])
+    return out
+
+
+def _question_missing(q):
+    """返回缺失项列表，空列表表示信息完整。
+
+    客观题（单选/多选/判断）必须有选项和正确答案；主观题必须有参考答案。
+    这就是「系统读不到答案或选项时提示管理者补充」的判据。
+    """
+    missing = []
+    qtype = q.get("type") or "问答题"
+    options = q.get("options") or []
+    correct = (q.get("correct") or "").strip().upper()
+
+    if qtype in ("单选题", "多选题", "判断题"):
+        if len(options) < 2:
+            missing.append("选项")
+        if not correct:
+            missing.append("正确答案")
+        else:
+            keys = {o["key"] for o in options}
+            if not set(re.findall(r"[A-Z]", correct)).issubset(keys):
+                missing.append("正确答案")
+    else:
+        if not (q.get("answer") or "").strip():
+            missing.append("参考答案")
+    return missing
+
+
+def _make_question(src, fallback_no="1"):
+    """把任意来源（Excel 行 / 前端提交 / 旧数据）整理成统一题目结构。"""
+    d = src if isinstance(src, dict) else {}
+    title = str(d.get("title") or "").strip()
+    options = _norm_options(d.get("options"))
+    qtype = _guess_type(d.get("type"), options, d.get("correct"))
+    item = {
+        "id": str(d.get("id") or uuid.uuid4().hex[:12]),
+        "no": str(d.get("no") or fallback_no).strip(),
+        "type": qtype,
+        "title": title,
+        "options": options,
+        "correct": _normalize_correct(qtype, d.get("correct"), options),
+        "explain": str(d.get("explain") or "").strip(),
+        "answer": str(d.get("answer") or "").strip(),
+        "difficulty": str(d.get("difficulty") or "基础").strip() or "基础",
+        "category": str(d.get("category") or "").strip(),
+        "position": str(d.get("position") or "").strip(),
+    }
+    item["missing"] = _question_missing(item)
+    return item
 
 
 def _find_bank(banks, bank_id):
@@ -2268,15 +2487,9 @@ def admin_add_question(bank_id: str, req: QuestionReq, _admin: str = Depends(req
     title = (req.title or "").strip()
     if not title:
         raise HTTPException(status_code=400, detail="题干不能为空")
-    item = {
-        "id": uuid.uuid4().hex[:12],
-        "no": (req.no or "").strip() or str(len(bank.get("questions") or []) + 1),
-        "title": title,
-        "answer": (req.answer or "").strip(),
-        "difficulty": (req.difficulty or "基础").strip(),
-        "category": (req.category or "").strip(),
-        "position": (req.position or "").strip(),
-    }
+    item = _make_question(
+        req.model_dump(), fallback_no=str(len(bank.get("questions") or []) + 1)
+    )
     bank.setdefault("questions", []).insert(0, item)
     save_banks(banks)
     logger.info(f"[Bank] 「{bank.get('name')}」新增题目：{title[:24]}")
@@ -2296,15 +2509,8 @@ def admin_update_question(bank_id: str, qid: str, req: QuestionReq, _admin: str 
     title = (req.title or "").strip()
     if not title:
         raise HTTPException(status_code=400, detail="题干不能为空")
-    items[index] = {
-        **items[index],
-        "no": (req.no or "").strip(),
-        "title": title,
-        "answer": (req.answer or "").strip(),
-        "difficulty": (req.difficulty or "基础").strip(),
-        "category": (req.category or "").strip(),
-        "position": (req.position or "").strip(),
-    }
+    merged = {**items[index], **req.model_dump(), "id": items[index].get("id")}
+    items[index] = _make_question(merged, fallback_no=items[index].get("no") or "1")
     save_banks(banks)
     return {"message": "已更新题目", "question": items[index]}
 
