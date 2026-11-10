@@ -51,7 +51,11 @@ DIFY_WORKFLOW_KEY = os.getenv("DIFY_WORKFLOW_KEY")
 REPORT_API_URL = os.getenv("REPORT_API_URL")
 
 
-app = FastAPI(title="AI面试后端")
+APP_VERSION = "1.0.0"
+APP_NAME = "AI 模拟面试平台"
+BUILD_DATE = "2026-11-10"
+
+app = FastAPI(title="AI面试后端", version=APP_VERSION)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -1520,6 +1524,17 @@ def admin_delete_user(username: str, admin: str = Depends(require_admin)):
 # ============================================================
 # [新增] 管理后台 —— 岗位管理
 # ============================================================
+@app.get("/api/version")
+def get_version():
+    """对外暴露版本号 —— 管理后台「系统状态」页和排查问题都用它。"""
+    return {
+        "name": APP_NAME,
+        "version": APP_VERSION,
+        "build": BUILD_DATE,
+        "api": "v1",
+    }
+
+
 @app.get("/api/positions")
 def list_positions():
     """公开接口，给前端 PositionPicker 读。
