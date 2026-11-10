@@ -2672,9 +2672,14 @@ class ExamRecordReq(BaseModel):
 def get_practice_records(username: str = ""):
     who = (username or "").strip()
     if not who:
-        return {"practice": [], "exam": []}
+        return {"practice": [], "exam": [], "summaries": []}
     d = load_practice_records().get(who) or {}
-    return {"practice": d.get("practice") or [], "exam": d.get("exam") or []}
+    return {
+        "practice": d.get("practice") or [],
+        "exam": d.get("exam") or [],
+        # 练习结束时的 AI 点评（按提交时间戳关联）
+        "summaries": d.get("summaries") or [],
+    }
 
 
 @app.post("/api/practice/records")
@@ -2710,7 +2715,7 @@ def add_practice_records(req: PracticeRecordReq):
     data[who] = bucket
     save_json_file(PRACTICE_FILE, data)
     logger.info(f"[Practice] {who} 记下 {added} 道题的作答")
-    return {"message": f"已保存 {added} 条记录", "added": added}
+    return {"message": f"已保存 {added} 条记录", "added": added, "at": now}
 
 
 @app.post("/api/practice/exams")
@@ -2746,6 +2751,159 @@ def add_exam_record(req: ExamRecordReq):
     logger.info(f"[Practice] {who} 完成一次模拟考试：{item['total']}/{item['max']}")
     return {"message": "已保存考试记录", "exam": {**item, "items": []}}
 
+
+# ============================================================
+# [新增] 交卷后的 AI 点评（30-50 字，一句优点 + 一句不足）
+# ============================================================
+class SummarizeReq(BaseModel):
+    items: list = []
+    total: float = 0
+    max: float = 0
+    mode: str = "practice"
+
+
+SUMMARY_PROMPT = """你是技术面试教练。根据这组练习/考试结果，写一段中文点评。
+
+要求：
+- 全文 30-50 个字，绝不能超过 50 字
+- 一句话说优点，一句话说不足，中间用「；」连接
+- 不要小标题、不要「优点：」「缺点：」字样、不要换行、不要表情符号
+- 语气客观具体，指出方向即可
+
+只输出点评本身，不要任何解释。"""
+
+
+def _fallback_summary(total, maxi, weak_types):
+    """模型不可用时的兜底点评，保证这个功能不会因为没网就整块空掉。"""
+    rate = (total / maxi * 100) if maxi else 0
+    if rate >= 80:
+        head = "整体掌握扎实，答题思路清晰"
+    elif rate >= 60:
+        head = "基础尚可，关键细节还需巩固"
+    else:
+        head = "基础还不够牢，建议回看知识点"
+    if weak_types:
+        tail = f"；{weak_types[0]}失分较多，建议重点复习"
+    else:
+        tail = "；继续保持这个节奏就好"
+    return head + tail
+
+
+@app.post("/api/practice/summarize")
+def practice_summarize(req: SummarizeReq):
+    """根据本次得分生成一段点评。模型调不通时退回规则生成，不让流程卡住。"""
+    items = req.items or []
+    count = len(items)
+    try:
+        total = float(req.total or 0)
+        maxi = float(req.max or 0)
+    except Exception:
+        total, maxi = 0.0, 0.0
+    maxi = maxi or (count * 10)
+
+    by_type = {}
+    for it in items:
+        t = str(it.get("type") or "问答题")
+        s = float(it.get("score") or 0)
+        g = by_type.setdefault(t, {"n": 0, "sum": 0.0})
+        g["n"] += 1
+        g["sum"] += s
+    weak = [
+        t
+        for t, g in sorted(by_type.items(), key=lambda kv: (kv[1]["sum"] / max(1, kv[1]["n"])))
+        if g["sum"] / max(1, g["n"]) < 6
+    ]
+
+    key = os.getenv("DASHSCOPE_API_KEY")
+    if key and count:
+        rate = round(total / maxi * 100) if maxi else 0
+        detail = "、".join(f"{t}{g['sum'] / max(1, g['n']):.1f}分" for t, g in by_type.items())
+        payload = {
+            "model": "qwen-plus",
+            "messages": [
+                {"role": "system", "content": SUMMARY_PROMPT},
+                {
+                    "role": "user",
+                    "content": (
+                        f"本次{'模拟考试' if req.mode == 'exam' else '练习'}：共 {count} 题，"
+                        f"总分 {total:g}/{maxi:g}，得分率 {rate}%。各题型平均分：{detail}。"
+                    ),
+                },
+            ],
+            "temperature": 0.4,
+        }
+        try:
+            resp = requests.post(
+                "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                json=payload,
+                timeout=60,
+            )
+            if resp.status_code == 200:
+                text = (resp.json()["choices"][0]["message"]["content"] or "").strip()
+                text = re.sub(r"[\r\n]+", " ", text).strip()
+                text = re.sub(r"^(优点[:：]|缺点[:：])", "", text).strip()
+                if text:
+                    return {"summary": text[:80], "source": "ai"}
+            else:
+                logger.warning(f"[Summary] 模型返回 {resp.status_code}: {resp.text[:200]}")
+        except Exception as e:
+            logger.warning(f"[Summary] 模型调用异常：{e}")
+
+    return {"summary": _fallback_summary(total, maxi, weak), "source": "rule"}
+
+
+class SummarySaveReq(BaseModel):
+    username: str
+    mode: str = "practice"
+    ref: str = ""
+    bank: str = ""
+    card: str = ""
+    total: float = 0
+    max: float = 0
+    count: int = 0
+    summary: str = ""
+
+
+@app.post("/api/practice/summary")
+def save_practice_summary(req: SummarySaveReq):
+    """用户彻底退出答题后，把点评落到记录里。"""
+    who = (req.username or "").strip()
+    if not who:
+        raise HTTPException(status_code=400, detail="缺少用户名")
+    text = (req.summary or "").strip()
+    if not text:
+        raise HTTPException(status_code=400, detail="点评内容为空")
+
+    data = load_practice_records()
+    bucket = data.setdefault(who, {})
+    bucket.setdefault("practice", [])
+    bucket.setdefault("exam", [])
+
+    if req.mode == "exam" and req.ref:
+        target = next((e for e in bucket["exam"] if e.get("id") == req.ref), None)
+        if not target:
+            raise HTTPException(status_code=404, detail="考试记录不存在")
+        target["summary"] = text
+    else:
+        bucket.setdefault("summaries", []).append(
+            {
+                "id": uuid.uuid4().hex[:12],
+                "ref": (req.ref or "").strip(),
+                "bank": (req.bank or "").strip(),
+                "card": (req.card or "").strip(),
+                "total": float(req.total or 0),
+                "max": float(req.max or 0),
+                "count": int(req.count or 0),
+                "summary": text,
+                "at": str(datetime.now()),
+            }
+        )
+
+    data[who] = bucket
+    save_json_file(PRACTICE_FILE, data)
+    logger.info(f"[Practice] {who} 保存了点评（{req.mode}）")
+    return {"message": "已保存点评"}
 
 @app.delete("/api/practice/exams/{exam_id}")
 def delete_exam_record(exam_id: str, username: str = ""):
